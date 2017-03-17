@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.sih.pmkvy.ui.MainActivity">
+    <Button
+        android:id="@+id/goto_training_centre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/goto_training_centre"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/goto_signup"
+        android:layout_height="wrap_content"
+        android:text="@string/goto_sign_up"/>
+</LinearLayout>
+
+
