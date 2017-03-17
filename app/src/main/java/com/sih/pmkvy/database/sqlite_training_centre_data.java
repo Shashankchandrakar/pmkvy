@@ -4,7 +4,6 @@ package com.sih.pmkvy.database;
  * Created by ASUS on 3/4/2017.
  */
 
-
 public class sqlite_training_centre_data {
     int centre_phone_no;
     String centre_name;
