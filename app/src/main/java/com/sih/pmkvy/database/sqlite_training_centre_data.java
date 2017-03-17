@@ -11,6 +11,7 @@ public class sqlite_training_centre_data {
     String centre_info;
     int centre_ID;
 
+
     public sqlite_training_centre_data( String centre_info, String centre_address, String centre_name, int centre_phone_no) {
         //this.centre_ID = centre_ID;
         this.centre_info = centre_info;
