@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,19 +37,25 @@ public class databse_handler_training_centre extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        String CREATE_TRAINING_CENTRE_TABLE = "CREATE TABLE " + TRAINING_CENTRES + "(" + CENTRE_ID + " INTEGER PRIMARY KEY, "
+        Log.d("Create","Creating Table on Create Method");
+        String CREATE_TRAINING_CENTRE_TABLE = "CREATE TABLE '" + TRAINING_CENTRES + "' (" + CENTRE_ID + " INTEGER PRIMARY KEY, "
                 + CENTRE_NAME + " TEXT," + CENTER_ADDRESS + " TEXT," + CENTRE_PHONE + " INTEGER," + CENTRE_INFO + " TEXT )";
         db.execSQL(CREATE_TRAINING_CENTRE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TRAINING_CENTRES);
-        onCreate(db);
+        Log.w("SingleDBAdapter", "Upgrading database from version " + oldVersion
+                + " to "
+                + newVersion + ", which will destroy all old data");
+        String drop="Drop Table 'training_centre'" ;//+ TRAINING_CENTRES;
+        db.execSQL(drop);
+
+        //onCreate(db);
     }
 
     public void addCentre(sqlite_training_centre_data centre) {
+        //Log.d("Create","Creating Table");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //values.put(CENTRE_ID, centre.getCentre_ID());
