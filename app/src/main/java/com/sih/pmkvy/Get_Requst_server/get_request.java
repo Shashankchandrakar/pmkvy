@@ -32,17 +32,21 @@ public class get_request extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPostExecute(String s) {
+        StringBuilder ansobj=new StringBuilder();
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            JSONArray jsonArray = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
 
-        try
-        {
-            JSONObject jsonObject=new JSONObject(s);
-            JSONArray jsonArray=jsonObject.getJSONArray("data");
-            JSONObject obj=jsonArray.getJSONObject(0);
+                JSONObject obj = jsonArray.getJSONObject(i);
 
-            String ans=obj.getString("id");
-            this.data.setText(ans);}
-            catch (Exception e)
-        {
+                ansobj.append(obj.getString("level"));
+
+            }
+            this.data.setText(ansobj.toString());
+        }
+
+            catch (Exception e){
 
         }
     }
