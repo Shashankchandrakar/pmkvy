@@ -113,6 +113,7 @@ public class traning_centre extends AppCompatActivity {
         find_centre centre_add;
         databse_handler_training_centre db = new databse_handler_training_centre(this);
         Log.d("INSERT: ", "Inserting ..");
+
         //TODO:remove this line after first run
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM I 23NFO", "SOME RANDOM AD 2DRESS", "SO234ME RANDOM NAME", 1232354));
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM 23INFO", "SOME RANDOM 324ADDRESS", "SOME2 3 RANDOM NAME", 1234235));
