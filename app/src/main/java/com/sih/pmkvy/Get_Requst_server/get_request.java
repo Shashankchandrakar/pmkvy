@@ -39,11 +39,9 @@ public class get_request extends AsyncTask<String,Void,String> {
             JSONArray jsonArray=jsonObject.getJSONArray("data");
             JSONObject obj=jsonArray.getJSONObject(0);
 
-
-
-        String ans=obj.getString("id");
-        this.data.setText(ans);}
-        catch (Exception e)
+            String ans=obj.getString("id");
+            this.data.setText(ans);}
+            catch (Exception e)
         {
 
         }
