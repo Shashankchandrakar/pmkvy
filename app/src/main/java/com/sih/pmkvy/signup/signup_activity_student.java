@@ -1,12 +1,33 @@
 package com.sih.pmkvy.signup;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sih.pmkvy.R;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 /**
  * Created by test on 2/26/2017.
@@ -34,6 +55,8 @@ public class signup_activity_student extends AppCompatActivity implements View.O
         boolean checkValidData = checkData();
         if(checkValidData)
         {
+            //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
+            new get_request(student_name.getText().toString(),student_email.getText().toString(),student_password.getText().toString(),v.getContext()).execute();
             //TODO: send data to server to create accout
         }
     }
@@ -63,6 +86,92 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     }
 }
 
+
+
+
+ class get_request extends AsyncTask<String,Void,String> {
+    String name,email,pass;
+     JSONObject json;
+    public String result;
+     boolean flag;
+     Context context;
+    public get_request(String name,String email,String pass,Context context) {
+
+        this.name=name;
+        this.email=email;
+        this.pass=pass;
+        this.context=context;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        if(flag)
+        Toast.makeText(context.getApplicationContext(),"True "+s,Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(context.getApplicationContext(),"False "+ s,Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+
+    protected String doInBackground(String... params) {
+
+        try {
+            String link="http://95c013bd.ngrok.io/api/users/";
+
+            //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
+
+
+            //Toast.makeText(context.getApplicationContext(),"LLLasfsdfdOLLL",Toast.LENGTH_LONG).show();
+            URL url=new URL(link);
+            URLConnection con=url.openConnection();
+            //Toast.makeText(context.getApplicationContext(),"LLLasfdOLLL",Toast.LENGTH_LONG).show();
+            con.setDoOutput(true);
+            OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
+
+            json=new JSONObject();
+            JSONObject add=new JSONObject();
+
+            add.put("user_name",name);
+            add.put("user_password",pass);
+            add.put("user_email",email);
+            add.put("user_last_login","2017-03-20");
+            add.put("user_date_joined","2017-03-20");
+            json.put("data",add);
+
+
+            wr.write(add.toString());
+            wr.flush();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            StringBuilder sb=new StringBuilder();
+            String line=null;
+
+            while ((line=reader.readLine())!=null)
+            {
+                Log.d("LINE : ",line);
+                if(line.equals("true"))
+                {
+                    //TODO: 3/20/2017 add response checking from server format is in jason
+                    flag=true;
+                }
+                else
+                    flag=false;
+                
+                sb.append(line);
+            }
+            return sb.toString();
+
+
+
+        } catch (Exception e) {
+            Log.d("ERROR",e.getMessage());
+            return "Exception: " + e.getMessage();
+        }
+
+    }
+}
 
 
 

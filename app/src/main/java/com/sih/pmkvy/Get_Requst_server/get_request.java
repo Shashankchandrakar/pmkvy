@@ -43,8 +43,8 @@ public class get_request extends AsyncTask<String,Void,String> {
                 ansobj.append(obj.getString("level"));
 
             }
-            //this.data.setText(ansobj.toString());
-            result=new String(ansobj.toString());
+            this.data.setText(ansobj.toString());
+            //result=new String(ansobj.toString());
         }
 
             catch (Exception e){
@@ -57,7 +57,7 @@ public class get_request extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://192.168.43.5:8000/api/trainingcenter/";
+            String link="http://2c6c0550.ngrok.io/api/trainingcenter";
             URL url =new URL(link);
             HttpClient client=new DefaultHttpClient();
             HttpGet request= new HttpGet();

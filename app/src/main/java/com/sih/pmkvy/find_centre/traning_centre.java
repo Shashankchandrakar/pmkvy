@@ -3,7 +3,9 @@ package com.sih.pmkvy.find_centre;
 import com.sih.pmkvy.database.databse_handler_training_centre;
 import com.sih.pmkvy.database.sqlite_training_centre_data;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -22,6 +24,17 @@ import com.sih.pmkvy.adapter.centre_list_adapter;
 import com.sih.pmkvy.ui.DividerItemDecoration;
 import com.sih.pmkvy.centre_complete_info.*;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,9 +123,10 @@ public class traning_centre extends AppCompatActivity {
             centre =new find_centre("TEST 1r CENTRE NAME","ADDRESS is HERE","976","Some Random Info","CALL");
             centre_list.add(centre);
             */
-        find_centre centre_add;
-        databse_handler_training_centre db = new databse_handler_training_centre(this);
+        //find_centre centre_add;
+        //databse_handler_training_centre db = new databse_handler_training_centre(this);
         Log.d("INSERT: ", "Inserting ..");
+
 
         //TODO:remove this line after first run
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM I 23NFO", "SOME RANDOM AD 2DRESS", "SO234ME RANDOM NAME", 1232354));
@@ -120,22 +134,99 @@ public class traning_centre extends AppCompatActivity {
        // db.addCentre(new sqlite_training_centre_data( "SOME RANDOM IN23FO", "SOME RANDOM234 ADDRESS", "SOME RAN234DOM NAME", 123235));
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM 324 INFO", "SOME RANDOM AD324 DRESS", "SOME RA432 NDOM NAME", 3123532));
 
-        Log.d("READING: ", "Reading all centre ...");
+        //Log.d("READING: ", "Reading all centre ...");
 
-        List<sqlite_training_centre_data> centres = db.getAllCentreInfo();
+        //List<sqlite_training_centre_data> centres = db.getAllCentreInfo();
 
-        for (sqlite_training_centre_data centre1 : centres) {
+        /*for (sqlite_training_centre_data centre1 : centres) {
             centre_add = new find_centre(centre1.getCentre_name(), centre1.getCentre_address(), String.valueOf(centre1.getCentre_phone_no())
                     , centre1.getCentre_info());
 
             centre_list.add(centre_add);
 
-        }
+        }*/
+        get_request a = new get_request(centre_list,centre_lists_adapter);
+        a.execute();
 
-        centre_lists_adapter.notifyDataSetChanged();
+        //centre_lists_adapter.notifyDataSetChanged();
     }
-
-
 }
 
+
+ class get_request extends AsyncTask<String,Void,String> {
+    TextView data;
+    Context context;
+    String result;
+    List<find_centre> center_list;
+    centre_list_adapter centre_lists_adapter;
+
+    public get_request(List<find_centre> centre_list,centre_list_adapter centre_lists_adapter) {
+        this.center_list=centre_list;
+        this.centre_lists_adapter=centre_lists_adapter;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        StringBuilder center_name;
+        StringBuilder center_address;
+        StringBuilder center_phone;
+        StringBuilder center_info;
+        find_centre centre_add;
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                JSONObject obj = jsonArray.getJSONObject(i);
+                center_name= new StringBuilder(obj.getString("training_center_name"));
+                center_address= new StringBuilder(obj.getString("address"));
+                center_phone = new StringBuilder(obj.getString("qp_code"));
+                center_info= new StringBuilder(obj.getString("parliamentary_constituency"));
+                centre_add=new find_centre(center_name.toString(),center_address.toString(),center_phone.toString(),center_info.toString());
+                center_list.add(centre_add);
+
+            }
+            //this.data.setText(ansobj.toString());
+            //result=new String(ansobj.toString());
+            centre_lists_adapter.notifyDataSetChanged();
+        }
+
+        catch (Exception e){
+
+        }
+    }
+
+    @Override
+
+    protected String doInBackground(String... params) {
+
+        try {
+            String link="http://95c013bd.ngrok.io/api/trainingcenter/";
+            URL url =new URL(link);
+            HttpClient client=new DefaultHttpClient();
+            HttpGet request= new HttpGet();
+            request.setURI(new URI(link));
+            HttpResponse response=client.execute(request);
+            BufferedReader in=new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuffer stringBuffer=new StringBuffer();
+            String line="";
+
+            while ((line = in.readLine())!=null)
+            {
+                stringBuffer.append(line);
+
+            }
+            in.close();
+            //data.setText("FS");
+            Log.d("DATA",stringBuffer.toString());
+            return stringBuffer.toString();
+
+
+        } catch (Exception e) {
+            return "Exception: " + e.getMessage();
+        }
+
+    }
+}
 
