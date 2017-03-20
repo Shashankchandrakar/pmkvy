@@ -56,8 +56,13 @@ public class signup_activity_student extends AppCompatActivity implements View.O
         if(checkValidData)
         {
             //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
-            new get_request(student_name.getText().toString(),student_email.getText().toString(),student_password.getText().toString(),v.getContext()).execute();
-            //TODO: send data to server to create accout
+           get_request req= new get_request(student_name.getText().toString(),student_email.getText().toString(),student_password.getText().toString(),v.getContext());
+            req.execute();
+
+
+            //(req.getStatus()!=AsyncTask.Status.FINISHED)
+            //Toast.makeText(v.getContext(),"After Execution",Toast.LENGTH_SHORT).show();
+            //TODO: send data to server to create account
         }
     }
 
@@ -106,9 +111,9 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     @Override
     protected void onPostExecute(String s) {
         if(flag)
-        Toast.makeText(context.getApplicationContext(),"True "+s,Toast.LENGTH_LONG).show();
+        Toast.makeText(context.getApplicationContext(),"Account Created Successful",Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(context.getApplicationContext(),"False "+ s,Toast.LENGTH_LONG).show();
+            Toast.makeText(context.getApplicationContext(),"Account Creation Failed",Toast.LENGTH_LONG).show();
 
     }
 
