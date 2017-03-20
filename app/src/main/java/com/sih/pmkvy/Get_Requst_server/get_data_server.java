@@ -18,7 +18,9 @@ public class get_data_server extends Activity {
         //
         setContentView(R.layout.get_request);
         data=(TextView)findViewById(R.id.get_request_data);
-        new get_request(data,getApplicationContext()).execute();
+        get_request a = new get_request(data,getApplicationContext());
+        a.execute();
+        data.setText(a.result);
 
         //data.setText(s);
         //
