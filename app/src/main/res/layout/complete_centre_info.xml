@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF0A5">
+
+            <TableRow
+                android:layout_margin="2dp"
+
+
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="4dp"
+                    android:text="@string/centre_details"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="-5dp"
+                    android:layout_marginStart="-1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="4"
+                    android:background="#F36F23" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:weightSum="4">
+
+                <TextView
+
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingRight="10dp"
+                    android:text="@string/centre_name_centre_info"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/centre_name_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="SDC_Rowta"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingRight="10dp"
+                    android:text="@string/address_centre_info"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Amalgamated Plantations Industrial Training Centre Rowta Chariali Station Road "
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:weightSum="4">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/district_centre_infor"
+                    android:textSize="20sp"
+                    android:layout_weight="2"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Darrang"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#FFFFFF"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="10dp"
+                android:padding="8dp"
+                android:weightSum="4">
+
+                <TextView
+                    android:layout_weight="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/state_centre_info"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/centre_info_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Assam"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="-5dp"
+                    android:layout_marginStart="-1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="4"
+                    android:background="#F36F23" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="4"
+                    android:padding="5dp"
+                    android:text="@string/centre_poc_details"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:weightSum="5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:padding="5dp"
+                    android:text="@string/poc_name_centre"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/poc_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Muna Pathak"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="2dp"
+                android:background="#FFFFFF"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:padding="2dp"
+                    android:text="@string/poc_email_centre"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/poc_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_weight="2"
+                    android:text="muna.pathak@gramtaranghhjjnhjhjhjjkjkjk.in"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="12dp">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="-5dp"
+                    android:layout_marginStart="-1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="4"
+                    android:background="#F36F23" />
+            </TableRow>
+            <TableRow >
+                <android.support.v7.widget.CardView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    android:layout_margin="2dp"
+                    android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Get Direction in Map"
+                    android:background="#468966"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="4"
+                    android:textAlignment="center"
+                    android:textSize="22sp"/>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+            <TableRow>
+                <android.support.v7.widget.CardView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    app:cardElevation="2dp"
+                    android:layout_margin="2dp"
+                    app:cardUseCompatPadding="true"
+                    android:layout_width="match_parent">
+                <TextView
+                    android:layout_weight="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="View Course Provided BY Center"
+                    android:background="#468966"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textAlignment="center"
+                    android:textSize="22sp"/>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>
