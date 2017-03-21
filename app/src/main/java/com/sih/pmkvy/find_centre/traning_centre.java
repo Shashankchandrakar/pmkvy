@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.sih.pmkvy.R;
@@ -33,8 +34,10 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.URI;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -145,7 +148,7 @@ public class traning_centre extends AppCompatActivity {
             centre_list.add(centre_add);
 
         }*/
-        get_request a = new get_request(centre_list,centre_lists_adapter);
+        get_request a = new get_request(getApplicationContext(),centre_list,centre_lists_adapter);
         a.execute();
 
         //centre_lists_adapter.notifyDataSetChanged();
@@ -153,20 +156,23 @@ public class traning_centre extends AppCompatActivity {
 }
 
 
- class get_request extends AsyncTask<String,Void,String> {
-    TextView data;
+
+class get_request extends AsyncTask<String,Void,String> {
+    JSONObject json;
+    boolean flag;
     Context context;
-    String result;
     List<find_centre> center_list;
     centre_list_adapter centre_lists_adapter;
-
-    public get_request(List<find_centre> centre_list,centre_list_adapter centre_lists_adapter) {
-        this.center_list=centre_list;
+    public get_request(Context context,List<find_centre> center_list,centre_list_adapter centre_lists_adapter) {
+        this.context=context;
         this.centre_lists_adapter=centre_lists_adapter;
+        this.center_list=center_list;
+
     }
 
     @Override
     protected void onPostExecute(String s) {
+        //Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_LONG).show();
         StringBuilder center_name;
         StringBuilder center_address;
         StringBuilder center_phone;
@@ -181,8 +187,8 @@ public class traning_centre extends AppCompatActivity {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 center_name= new StringBuilder(obj.getString("training_center_name"));
                 center_address= new StringBuilder(obj.getString("address"));
-                center_phone = new StringBuilder(obj.getString("qp_code"));
-                center_info= new StringBuilder(obj.getString("parliamentary_constituency"));
+                center_phone = new StringBuilder(obj.getString("id"));
+                center_info= new StringBuilder(obj.getString("training_center_district"));
                 centre_add=new find_centre(center_name.toString(),center_address.toString(),center_phone.toString(),center_info.toString());
                 center_list.add(centre_add);
 
@@ -202,31 +208,55 @@ public class traning_centre extends AppCompatActivity {
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://95c013bd.ngrok.io/api/trainingcenter/";
-            URL url =new URL(link);
-            HttpClient client=new DefaultHttpClient();
-            HttpGet request= new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response=client.execute(request);
-            BufferedReader in=new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-            StringBuffer stringBuffer=new StringBuffer();
-            String line="";
+            String link="http://192.168.43.5:8000/api/trainingcenter/";
 
-            while ((line = in.readLine())!=null)
+            //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
+
+
+
+            URL url=new URL(link);
+            URLConnection con=url.openConnection();
+            //Toast.makeText(context.getApplicationContext(),"LLLasfdOLLL",Toast.LENGTH_LONG).show();
+            con.setDoOutput(true);
+            OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
+
+            json=new JSONObject();
+            JSONObject add=new JSONObject();
+
+            add.put("training_center_district","durg");
+
+            json.put("data",add);
+
+
+            wr.write(add.toString());
+            wr.flush();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            StringBuilder sb=new StringBuilder();
+            String line=null;
+
+            while ((line=reader.readLine())!=null)
             {
-                stringBuffer.append(line);
+                Log.d("LINE : ",line);
+                if(line.equals("true"))
+                {
+                    //TODO: 3/20/2017 add response checking from server format is in jason
+                    flag=true;
+                }
+                else
+                    flag=false;
 
+                sb.append(line);
             }
-            in.close();
-            //data.setText("FS");
-            Log.d("DATA",stringBuffer.toString());
-            return stringBuffer.toString();
+            return sb.toString();
+
 
 
         } catch (Exception e) {
+            Log.d("ERROR",e.getMessage());
             return "Exception: " + e.getMessage();
         }
 
     }
 }
-

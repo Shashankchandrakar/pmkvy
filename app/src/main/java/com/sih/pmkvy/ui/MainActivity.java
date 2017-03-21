@@ -8,18 +8,19 @@ import com.sih.pmkvy.Get_Requst_server.*;
 import com.sih.pmkvy.R;
 import com.sih.pmkvy.find_centre.traning_centre;
 import com.sih.pmkvy.signup.signup_activity_student;
+import com.sih.pmkvy.login.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button signup,centre_list,data;
+    Button signup,centre_list,login_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         signup=(Button)findViewById(R.id.goto_signup);
         centre_list=(Button)findViewById(R.id.goto_training_centre);
-        data=(Button)findViewById(R.id.get);
-        data.setOnClickListener(this);
+        login_btn=(Button)findViewById(R.id.login_main);
+        login_btn.setOnClickListener(this);
         signup.setOnClickListener(this);
         centre_list.setOnClickListener(this);
     }
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent training = new Intent(this, traning_centre.class);
         Intent signup = new Intent(this, signup_activity_student.class);
-        Intent data=new Intent(this,get_data_server.class);
+        Intent login = new Intent(this,login_activity_student.class);
 
         if(R.id.goto_signup==v.getId())
         {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (R.id.goto_training_centre == v.getId()) {
                 startActivity(training);
             } else {
-                startActivity(data);
+                startActivity(login);
             }
         }
 

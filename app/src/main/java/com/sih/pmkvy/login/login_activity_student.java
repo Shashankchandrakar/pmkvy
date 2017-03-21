@@ -1,4 +1,8 @@
-package com.sih.pmkvy.signup;
+package com.sih.pmkvy.login;
+
+/**
+ * Created by ASUS on 3/20/2017.
+ */
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,44 +12,36 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
+
 
 /**
  * Created by test on 2/26/2017.
  */
 
-public class signup_activity_student extends AppCompatActivity implements View.OnClickListener {
+public class login_activity_student extends AppCompatActivity implements View.OnClickListener {
 
     private EditText student_name, student_email, student_password;
-    private Button signup_button;
+    private Button login_button;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup_student);
-        student_name = (EditText) findViewById(R.id.student_name_signup);
-        student_email = (EditText) findViewById(R.id.student_email_signup);
-        student_password = (EditText) findViewById(R.id.studnet_password_signup);
-        signup_button = (Button) findViewById(R.id.btn_signup);
-        signup_button.setOnClickListener(this);
+        setContentView(R.layout.login_student);
+        //student_name = (EditText) findViewById(R.id.student_name_signup);
+        student_email = (EditText) findViewById(R.id.student_email_login);
+        student_password = (EditText) findViewById(R.id.studnet_password_login);
+        login_button = (Button) findViewById(R.id.btn_login);
+        login_button.setOnClickListener(this);
 
 
     }
@@ -56,7 +52,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
         if(checkValidData)
         {
             //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
-           get_request req= new get_request(student_name.getText().toString(),student_email.getText().toString(),student_password.getText().toString(),v.getContext());
+            get_request req= new get_request(student_email.getText().toString(),student_password.getText().toString(),v.getContext());
             req.execute();
 
 
@@ -68,12 +64,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
 
     private boolean checkData() {
         boolean valid = true;
-        if (student_name == null || student_name.getText().equals("") || student_name.length() < 3) {
-            student_name.setError("Name Should be grater than 3 Digits");
-            valid = false;
-        } else {
-            student_name.setError(null);
-        }
+
         if (student_email == null || !android.util.Patterns.EMAIL_ADDRESS.matcher(student_email.getText()).matches()) {
             valid = false;
             student_email.setError("Enter Valid Email Address");
@@ -94,15 +85,15 @@ public class signup_activity_student extends AppCompatActivity implements View.O
 
 
 
- class get_request extends AsyncTask<String,Void,String> {
+class get_request extends AsyncTask<String,Void,String> {
     String name,email,pass;
-     JSONObject json;
-    public String result;
-     boolean flag;
-     Context context;
-    public get_request(String name,String email,String pass,Context context) {
+    JSONObject json;
 
-        this.name=name;
+    boolean flag;
+    Context context;
+    public get_request(String email,String pass,Context context) {
+
+
         this.email=email;
         this.pass=pass;
         this.context=context;
@@ -111,9 +102,9 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     @Override
     protected void onPostExecute(String s) {
         if(flag)
-        Toast.makeText(context.getApplicationContext(),"Account Created Successful",Toast.LENGTH_LONG).show();
+            Toast.makeText(context.getApplicationContext(),"Login Successful "+s,Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(context.getApplicationContext(),"Account Creation Failed",Toast.LENGTH_LONG).show();
+            Toast.makeText(context.getApplicationContext(),"Login Failed"+s,Toast.LENGTH_LONG).show();
 
     }
 
@@ -122,7 +113,8 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://192.168.43.5:8000/api/users/";
+            //String link="http://3a7c3848.ngrok.io/api/logincheck/";
+            String link="http://3a7c3848.ngrok.io/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -137,11 +129,12 @@ public class signup_activity_student extends AppCompatActivity implements View.O
             json=new JSONObject();
             JSONObject add=new JSONObject();
 
-            add.put("user_name",name);
-            add.put("user_password",pass);
-            add.put("user_email",email);
-            add.put("user_last_login","2017-03-20");
-            add.put("user_date_joined","2017-03-20");
+            //add.put("user_name",name);
+            //add.put("user_password","pass");
+            //add.put("user_email","teste");
+            add.put("center_id","fdkskfb4343");
+            //add.put("user_last_login","2017-03-20");
+            //add.put("user_date_joined","2017-03-20");
             json.put("data",add);
 
 
@@ -163,7 +156,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
                 }
                 else
                     flag=false;
-                
+
                 sb.append(line);
             }
             return sb.toString();
