@@ -22,6 +22,8 @@
         <activity android:name=".Get_Requst_server.get_data_server" android:theme="@style/AppTheme" />
         <activity android:name=".centre_complete_info.centre_info_display" android:theme="@style/AppTheme" />
         <activity android:name=".login.login_activity_student" android:theme="@style/AppTheme" />
+        <activity android:name=".homepage.homepage" android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

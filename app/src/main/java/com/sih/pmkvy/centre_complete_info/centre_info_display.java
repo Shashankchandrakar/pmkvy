@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +30,10 @@ import java.net.URLConnection;
 public class centre_info_display extends AppCompatActivity {
     String center_id;
     TextView center_name, center_address, center_district, center_state, poc_name, poc_email;
+    ScrollView sc;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.complete_centre_info);
         center_id = getIntent().getStringExtra("Phone");
@@ -40,8 +43,8 @@ public class centre_info_display extends AppCompatActivity {
         center_state = (TextView) findViewById(R.id.center_state_info);
         poc_name = (TextView) findViewById(R.id.poc_name);
         poc_email = (TextView) findViewById(R.id.poc_email);
-
-        new get_request(center_name, center_address, center_district, center_state, poc_name, poc_email, this, center_id).execute();
+        sc=(ScrollView)findViewById(R.id.complete_center_info);
+        new get_request(center_name, center_address, center_district, center_state, poc_name, poc_email, this, center_id,sc).execute();
 
 
     }
@@ -55,8 +58,9 @@ class get_request extends AsyncTask<String, Void, String> {
     boolean flag;
     TextView center_name, center_address, center_district, center_state, poc_name, poc_email;
     Context context;
+    ScrollView sc;
 
-    public get_request(TextView center_name, TextView center_address, TextView center_district, TextView center_state, TextView poc_name, TextView poc_email, Context context, String center_id) {
+    public get_request(TextView center_name, TextView center_address, TextView center_district, TextView center_state, TextView poc_name, TextView poc_email, Context context, String center_id,ScrollView sc) {
         this.center_name = center_name;
         this.center_address = center_address;
         this.center_district = center_district;
@@ -65,6 +69,8 @@ class get_request extends AsyncTask<String, Void, String> {
         this.poc_email = poc_email;
         this.context = context;
         this.center_id = center_id;
+        this.sc=sc;
+
     }
 
     @Override
@@ -72,8 +78,8 @@ class get_request extends AsyncTask<String, Void, String> {
 
         //Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_LONG).show();
         try {
-            JSONObject obj1=new JSONObject(s);
-            JSONObject obj=obj1.getJSONObject("data");
+            JSONObject obj1 = new JSONObject(s);
+            JSONObject obj = obj1.getJSONObject("data");
             //Toast.makeText(context.getApplicationContext(),obj.getString("address"),Toast.LENGTH_LONG).show();
             center_name.setText(obj.getString("training_center_name"));
             center_address.setText(obj.getString("address"));
@@ -83,9 +89,10 @@ class get_request extends AsyncTask<String, Void, String> {
             poc_email.setText(obj.getString("center_poc_email"));
 
         } catch (Exception e) {
+            Log.d("ERROR", e.toString());
 
         }
-
+        sc.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -93,7 +100,7 @@ class get_request extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link = "http://192.168.19.50:8000/api/singletrainingcenter/";
+            String link = "http://081786cc.ngrok.io/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

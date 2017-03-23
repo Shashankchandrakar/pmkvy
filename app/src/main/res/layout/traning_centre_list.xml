@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFEFA5"
+    android:clickable="true"
     android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:clickable="true"
-    android:background="#FFEFA5"
 
-    android:orientation="vertical">
+    android:paddingTop="10dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="6dp"
-        app:cardUseCompatPadding="true"
         app:cardElevation="7dp"
-        android:id="@+id/card_view"
+        app:cardUseCompatPadding="true"
 
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,50 +30,51 @@
 
             <TextView
                 android:id="@+id/centre_name"
-                android:text="LOLL"
-                android:clickable="true"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:padding="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:padding="5dp"
+                android:text="LOLL"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/centre_address"
-                android:text="LJHOH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/centre_name"
                 android:clickable="true"
                 android:padding="5dp"
-                android:layout_below="@id/centre_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="LJHOH" />
 
             <TextView
                 android:id="@+id/centre_phone_no"
-                android:padding="5dp"
-                android:text="PHONE"
-                android:clickable="true"
-                android:layout_below="@+id/centre_address"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:text="INFO"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/centre_address"
                 android:clickable="true"
                 android:padding="5dp"
+                android:text="PHONE" />
+
+            <TextView
+                android:id="@+id/centre_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/centre_phone_no"
-                android:id="@+id/centre_info"
-                android:visibility="gone"/>
+                android:clickable="true"
+                android:padding="5dp"
+                android:text="INFO"
+                android:visibility="gone" />
 
             <Button
+                android:id="@+id/call"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calll"
                 android:layout_marginLeft="5dp"
-                android:shadowColor="@color/colorPrimary"
-                android:id="@+id/call"
                 android:background="@android:color/holo_green_dark"
-                android:visibility="gone"/>
+                android:shadowColor="@color/colorPrimary"
+                android:text="Calll"
+                android:visibility="gone" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

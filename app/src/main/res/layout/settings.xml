@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -13,9 +13,9 @@
 
 
         <TextView
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="PERSONAL DETAILS"
             android:textSize="18dp"
 
@@ -39,8 +39,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:layout_marginTop="5dp"
+                    android:padding="5dp"
                     android:weightSum="5">
 
 
@@ -64,11 +64,11 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
+                    android:padding="5dp"
                     android:weightSum="5">
 
                     <TextView
@@ -97,87 +97,85 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <TextView
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="CONTACT INFO :- "
             android:textSize="18dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="6dp"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="7dp"
             app:cardBackgroundColor="#FFEFA5"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="7dp"
+            app:cardUseCompatPadding="true"
 
             >
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:padding="5dp"
-                    android:weightSum="5"
-                    android:layout_marginTop="5dp">
+                    android:weightSum="5">
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:text="Email :"
-                        android:textStyle="bold"
-                        android:layout_weight="0.5"
                         android:layout_marginRight="1dp"
-                        />
+                        android:layout_weight="0.5"
+                        android:text="Email :"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
                     <EditText
-                        android:layout_weight="4.5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Enter Email"
                         android:layout_marginLeft="30dp"
+                        android:layout_weight="4.5"
                         android:background="#FFFFFF"
+                        android:hint="Enter Email"
 
                         />
 
 
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="8dp"
-                    android:weightSum="5"
-                    android:padding="5dp">
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="5">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:text="Contact:"
-                        android:textStyle="bold"
                         android:layout_weight="0.5"
-                        />
+                        android:text="Contact:"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Contact Number"
                         android:layout_marginLeft="30dp"
-                        android:background="#FFFFFF"
                         android:layout_weight="4.5"
-                        />
+                        android:background="#FFFFFF"
+                        android:hint="Contact Number" />
                 </TableRow>
 
             </TableLayout>
@@ -185,94 +183,90 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <TextView
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="Location :- "
             android:textSize="22dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="6dp"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="7dp"
             app:cardBackgroundColor="#FFEFA5"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="7dp"
+            app:cardUseCompatPadding="true"
 
             >
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:padding="5dp"
-                    android:weightSum="5"
-                    android:layout_marginTop="5dp">
+                    android:weightSum="5">
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:text="State:"
-                        android:textStyle="bold"
-                        android:layout_weight="0.5"
                         android:layout_marginRight="1dp"
-                        />
+                        android:layout_weight="0.5"
+                        android:text="State:"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                   <Spinner
-                       android:layout_weight="4.5"
-                       android:spinnerMode="dropdown"
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                       android:layout_height="wrap_content"
-                       android:layout_width="match_parent">
+                        android:layout_weight="4.5"
+                        android:spinnerMode="dropdown">
 
-                   </Spinner>
+                    </Spinner>
 
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="8dp"
-                    android:weightSum="5"
-                    android:padding="5dp">
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="5">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:text="Contact:"
-                        android:textStyle="bold"
                         android:layout_weight="0.5"
-                        />
+                        android:text="Contact:"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Contact Number"
                         android:layout_marginLeft="30dp"
-                        android:background="#FFFFFF"
                         android:layout_weight="4.5"
-                        />
+                        android:background="#FFFFFF"
+                        android:hint="Contact Number" />
                 </TableRow>
 
             </TableLayout>
         </android.support.v7.widget.CardView>
-
-
     </LinearLayout>
 </LinearLayout>
