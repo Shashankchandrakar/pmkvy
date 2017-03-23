@@ -12,13 +12,14 @@ import com.sih.pmkvy.R;
  */
 public class get_data_server extends Activity {
     TextView data;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String s="FSFSFS";
+        String s = "FSFSFS";
         //
         setContentView(R.layout.get_request);
-        data=(TextView)findViewById(R.id.get_request_data);
-        get_request a = new get_request(data,getApplicationContext());
+        data = (TextView) findViewById(R.id.get_request_data);
+        get_request a = new get_request(data, getApplicationContext());
         a.execute();
         data.setText(a.result);
 

@@ -13,7 +13,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,12 +49,13 @@ import java.util.List;
  */
 
 
-public class traning_centre extends AppCompatActivity {
+public class traning_centre extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private List<find_centre> centre_list = new ArrayList<>();
     private RecyclerView recyclerView;
     private centre_list_adapter centre_lists_adapter;
     Button call_button;
+    Spinner district_spinner, state_spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,9 @@ public class traning_centre extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         centre_lists_adapter = new centre_list_adapter(centre_list);
+
+        district_spinner = (Spinner) findViewById(R.id.district_training_center);
+        state_spinner = (Spinner) findViewById(R.id.state_training_center);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -71,18 +78,17 @@ public class traning_centre extends AppCompatActivity {
             public void onClick(View view, int position) {
 
                 //TODO : handle on click event here
-                Intent centre_info_intent = new Intent(view.getContext(),centre_info_display.class);
-                TextView phone=(TextView)view.findViewById(R.id.centre_phone_no);
-                centre_info_intent.putExtra("Phone",phone.getText());
+                Intent centre_info_intent = new Intent(view.getContext(), centre_info_display.class);
+                TextView phone = (TextView) view.findViewById(R.id.centre_phone_no);
+                centre_info_intent.putExtra("Phone", phone.getText());
                 startActivity(centre_info_intent);
-
 
 
                 //find_centre centre = centre_list.get(position);
                 //Toast.makeText(getApplicationContext(), centre.getCentre_name() + " is selected!", Toast.LENGTH_SHORT).show();
-               // TextView centre_info = (TextView) view.findViewById(R.id.centre_info);
+                // TextView centre_info = (TextView) view.findViewById(R.id.centre_info);
                 //Button call_button = (Button) view.findViewById(R.id.call);
-               // Toast.makeText(getApplicationContext(), String .valueOf(view.getId()),Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), String .valueOf(view.getId()),Toast.LENGTH_SHORT).show();
                 //if (view.getId() == R.id.card_view)
                 /*{
 
@@ -105,6 +111,22 @@ public class traning_centre extends AppCompatActivity {
             }
         }));
         setCentre_list();
+        district_spinner.setOnItemSelectedListener(this);
+        state_spinner.setOnItemSelectedListener(this);
+
+        List<String> state = new ArrayList<String>();
+        state.add("CG");
+        state.add("MP");
+
+        ArrayAdapter<String> state_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, state);
+        state_spinner.setAdapter(state_dataAdapter);
+
+        List<String> district = new ArrayList<String>();
+        district.add("Durg");
+        district.add("Raipur");
+
+        ArrayAdapter<String> district_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, district);
+        district_spinner.setAdapter(district_dataAdapter);
 
     }
 
@@ -134,7 +156,7 @@ public class traning_centre extends AppCompatActivity {
         //TODO:remove this line after first run
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM I 23NFO", "SOME RANDOM AD 2DRESS", "SO234ME RANDOM NAME", 1232354));
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM 23INFO", "SOME RANDOM 324ADDRESS", "SOME2 3 RANDOM NAME", 1234235));
-       // db.addCentre(new sqlite_training_centre_data( "SOME RANDOM IN23FO", "SOME RANDOM234 ADDRESS", "SOME RAN234DOM NAME", 123235));
+        // db.addCentre(new sqlite_training_centre_data( "SOME RANDOM IN23FO", "SOME RANDOM234 ADDRESS", "SOME RAN234DOM NAME", 123235));
         //db.addCentre(new sqlite_training_centre_data( "SOME RANDOM 324 INFO", "SOME RANDOM AD324 DRESS", "SOME RA432 NDOM NAME", 3123532));
 
         //Log.d("READING: ", "Reading all centre ...");
@@ -148,31 +170,42 @@ public class traning_centre extends AppCompatActivity {
             centre_list.add(centre_add);
 
         }*/
-        get_request a = new get_request(getApplicationContext(),centre_list,centre_lists_adapter);
+        get_request a = new get_request(getApplicationContext(), centre_list, centre_lists_adapter);
         a.execute();
 
         //centre_lists_adapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
 
 
-
-class get_request extends AsyncTask<String,Void,String> {
+class get_request extends AsyncTask<String, Void, String> {
+    String res;
     JSONObject json;
     boolean flag;
     Context context;
     List<find_centre> center_list;
     centre_list_adapter centre_lists_adapter;
-    public get_request(Context context,List<find_centre> center_list,centre_list_adapter centre_lists_adapter) {
-        this.context=context;
-        this.centre_lists_adapter=centre_lists_adapter;
-        this.center_list=center_list;
+
+    public get_request(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter) {
+        this.context = context;
+        this.centre_lists_adapter = centre_lists_adapter;
+        this.center_list = center_list;
 
     }
 
     @Override
     protected void onPostExecute(String s) {
-        //Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_LONG).show();
+        //Toast.makeText(context.getApplicationContext(), res+s, Toast.LENGTH_LONG).show();
         StringBuilder center_name;
         StringBuilder center_address;
         StringBuilder center_phone;
@@ -185,20 +218,18 @@ class get_request extends AsyncTask<String,Void,String> {
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject obj = jsonArray.getJSONObject(i);
-                center_name= new StringBuilder(obj.getString("training_center_name"));
-                center_address= new StringBuilder(obj.getString("address"));
-                center_phone = new StringBuilder(obj.getString("id"));
-                center_info= new StringBuilder(obj.getString("training_center_district"));
-                centre_add=new find_centre(center_name.toString(),center_address.toString(),center_phone.toString(),center_info.toString());
+                center_name = new StringBuilder(obj.getString("training_center_name"));
+                center_address = new StringBuilder(obj.getString("address"));
+                center_phone = new StringBuilder(obj.getString("center_id"));
+                center_info = new StringBuilder(obj.getString("center_id"));
+                centre_add = new find_centre(center_name.toString(), center_address.toString(), center_phone.toString(), center_info.toString());
                 center_list.add(centre_add);
 
             }
             //this.data.setText(ansobj.toString());
             //result=new String(ansobj.toString());
             centre_lists_adapter.notifyDataSetChanged();
-        }
-
-        catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -208,53 +239,49 @@ class get_request extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://192.168.43.5:8000/api/trainingcenter/";
+
+            String link = "http://192.168.19.50:8000/api/trainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
 
-
-            URL url=new URL(link);
-            URLConnection con=url.openConnection();
+            URL url = new URL(link);
+            URLConnection con = url.openConnection();
             //Toast.makeText(context.getApplicationContext(),"LLLasfdOLLL",Toast.LENGTH_LONG).show();
             con.setDoOutput(true);
-            OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 
-            json=new JSONObject();
-            JSONObject add=new JSONObject();
+            json = new JSONObject();
+            JSONObject add = new JSONObject();
 
-            add.put("training_center_district","durg");
+            add.put("training_center_district", "durg");
 
-            json.put("data",add);
+            //json.put("data", add);
 
 
             wr.write(add.toString());
             wr.flush();
-
+            res=add.toString();
             BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            StringBuilder sb=new StringBuilder();
-            String line=null;
+            StringBuilder sb = new StringBuilder();
+            String line = null;
 
-            while ((line=reader.readLine())!=null)
-            {
-                Log.d("LINE : ",line);
-                if(line.equals("true"))
-                {
+            while ((line = reader.readLine()) != null) {
+                Log.d("LINE : ", line);
+                if (line.equals("true")) {
                     //TODO: 3/20/2017 add response checking from server format is in jason
-                    flag=true;
-                }
-                else
-                    flag=false;
+                    flag = true;
+                } else
+                    flag = false;
 
                 sb.append(line);
             }
             return sb.toString();
 
 
-
         } catch (Exception e) {
-            Log.d("ERROR",e.getMessage());
+            Log.d("ERROR", e.getMessage());
             return "Exception: " + e.getMessage();
         }
 

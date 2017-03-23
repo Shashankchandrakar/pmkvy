@@ -122,7 +122,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://192.168.43.5:8000/api/users/";
+            String link="http://192.168.19.50:8000/api/users/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

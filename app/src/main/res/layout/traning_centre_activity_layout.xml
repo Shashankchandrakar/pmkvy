@@ -15,12 +15,14 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/state_training_center"
             android:layout_weight="1">
 
         </Spinner>
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/district_training_center"
             android:layout_weight="1"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

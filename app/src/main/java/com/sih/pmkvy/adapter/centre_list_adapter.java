@@ -24,6 +24,7 @@ import java.util.List;
  * Created by ASUS on 2/25/2017.
  */
 
+
 public class centre_list_adapter extends RecyclerView.Adapter<centre_list_adapter.centre_holder> implements View.OnClickListener {
 
 
