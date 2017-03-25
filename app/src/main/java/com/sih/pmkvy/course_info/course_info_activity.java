@@ -33,7 +33,7 @@ public class course_info_activity extends AppCompatActivity {
 
     List<couse_info_data> course;
     RecyclerView rv;
-    String center_id, courseid, job_role_name;
+    String center_id, courseid, job_role_name, job_sector, coursename;
     TextView course_name, course_id, skill_sector, job_role;
 
     @Override
@@ -48,50 +48,54 @@ public class course_info_activity extends AppCompatActivity {
         rv.setLayoutManager(linearlayout);
 
         Bundle b = getIntent().getExtras();
+
         center_id = b.getString("training_center_id");
         courseid = b.getString("course_id");
         job_role_name = b.getString("job_role_name");
+        job_sector = b.getString("job_sector");
+        coursename = b.getString("course_name");
+
+
         course = new ArrayList<>();
+
         course_name = (TextView) findViewById(R.id.course_name_courseinfo);
+        course_name.setText(coursename);
+
         job_role = (TextView) findViewById(R.id.job_role_courseinfo);
+        job_role.setText(job_role_name);
+
         course_id = (TextView) findViewById(R.id.course_id_courseinfo);
+        course_id.setText(courseid);
+
         skill_sector = (TextView) findViewById(R.id.skill_sector_courseinfo);
-        new get_request(this, course, rv, center_id, courseid, job_role_name, course_name, course_id, skill_sector, job_role).execute();
-        InitializedData();
-        InitializeAdapter();
+        skill_sector.setText(job_sector);
 
-    }
 
-    private void InitializedData() {
-
-        course.add(new couse_info_data("12/03/85", "30/04/86", "20", "Availaible"));
-        course.add(new couse_info_data("15/05/85", "30/08/86", "40", "Availaible"));
-        course.add(new couse_info_data("20/08/85", "30/10/86", "25", "Availaible"));
+        new get_request(this, course, rv, center_id, courseid, job_role_name, course_name
+                , course_id, skill_sector, job_role, job_sector, coursename).execute();
 
 
     }
 
-    private void InitializeAdapter() {
-        course_info_adapter cid = new course_info_adapter(course);
-        rv.setAdapter(cid);
-        cid.notifyDataSetChanged();
 
-    }
 }
 
 class get_request extends AsyncTask<String, Void, String> {
     Context context;
     List<couse_info_data> course;
     RecyclerView rv;
-    String center_id, course_id, job_role_name;
+    String center_id, course_id, job_role_name, job_sector, course_name;
     JSONObject json;
     Boolean flag;
     TextView course_name_t, course_id_t, skill_sector_t, job_role_t;
 
 
     public get_request(Context context, List<couse_info_data> course, RecyclerView rv, String center_id, String course_id
-            , String job_role_name, TextView course_name_t, TextView course_id_t, TextView skill_sector_t, TextView job_role_t) {
+            , String job_role_name, TextView course_name_t, TextView course_id_t, TextView skill_sector_t, TextView job_role_t,
+                       String job_sector, String course_name) {
         this.context = context;
+        this.job_sector = job_sector;
+        this.course_name = course_name;
         this.course_name_t = course_name_t;
         this.course_id_t = course_id_t;
         this.skill_sector_t = skill_sector_t;
@@ -106,16 +110,24 @@ class get_request extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-        String job_sector, course_id, course_name;
+        //Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+
         //TODO: Add validate check so that result is true or not
-
+        String start, end;
         try {
-            JSONObject obj = new JSONObject(s);
-            course_name = new JSONObject("course_id").getString("course_name");
-            course_id = new JSONObject("course_id").getString("course_id");
+            JSONObject jsonObject=new JSONObject(s);
+            JSONArray jsonArray = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                start = obj.getString("batch_start_data");
+                end = obj.getString("batch_end_data");
+                course.add(new couse_info_data(start, end, "25", "Availaible"));
 
+            }
 
+            course_info_adapter cid = new course_info_adapter(course);
+            rv.setAdapter(cid);
+            cid.notifyDataSetChanged();
 
         } catch (Exception e) {
             Log.d("ERROR", e.toString());
