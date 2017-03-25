@@ -37,10 +37,15 @@
         <activity
             android:name=".homepage.homepage"
             android:theme="@style/AppTheme" />
-        <activity android:name=".settings.settings"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".course_provided_center.course_provide_center_activity"
-            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".settings.settings"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".course_provided_center.course_provide_center_activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".registration_form.registration_form"
+            android:theme="@style/AppTheme" />
 
 
     </application>

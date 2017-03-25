@@ -14,10 +14,11 @@ import com.sih.pmkvy.login.*;
 import com.sih.pmkvy.homepage.*;
 import com.sih.pmkvy.settings.*;
 import com.sih.pmkvy.course_provided_center.*;
+import com.sih.pmkvy.registration_form.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, centre_list, login_btn, set_btn, course_info, home_page, course_provided;
+    Button signup, centre_list, login_btn, set_btn, course_info, home_page, course_provided, register_form;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         centre_list = (Button) findViewById(R.id.goto_training_centre);
         login_btn = (Button) findViewById(R.id.login_main);
         course_info = (Button) findViewById(R.id.courseinfo);
+        register_form = (Button) findViewById(R.id.registration_form);
 
+        register_form.setOnClickListener(this);
         login_btn.setOnClickListener(this);
         course_provided.setOnClickListener(this);
         signup.setOnClickListener(this);
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent settings = new Intent(this, settings.class);
         Intent course = new Intent(this, course_info_activity.class);
         Intent homepage = new Intent(this, homepage.class);
+        Intent register=new Intent(this ,registration_form.class);
         Intent course_provided = new Intent(this, course_provide_center_activity.class);
         if (R.id.goto_signup == v.getId()) {
             startActivity(signup);
@@ -66,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(homepage);
                 } else if (R.id.course_btn_main == v.getId()) {
                     startActivity(course_provided);
+                } else if (R.id.registration_form == v.getId()) {
+                    startActivity(register);
                 } else {
                     startActivity(course);
                 }
