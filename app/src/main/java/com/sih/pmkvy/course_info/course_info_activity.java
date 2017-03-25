@@ -48,5 +48,6 @@ public class course_info_activity extends AppCompatActivity {
         course_info_adapter cid=new course_info_adapter(course);
         rv.setAdapter(cid);
         cid.notifyDataSetChanged();
+
     }
 }

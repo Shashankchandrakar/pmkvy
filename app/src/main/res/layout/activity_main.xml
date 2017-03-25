@@ -42,6 +42,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/homepage_btn"
         android:text="Home page"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_btn_main"
+        android:text="course provided"/>
 </LinearLayout>
 
 

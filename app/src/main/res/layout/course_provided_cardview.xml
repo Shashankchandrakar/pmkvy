@@ -25,7 +25,7 @@
             android:paddingLeft="10dp">
 
             <TextView
-                android:id="@+id/job_sector_cardview"
+                android:id="@+id/job_sector_cardview_course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -35,7 +35,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/job_role_cardview"
+                android:id="@+id/job_role_cardview_course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -44,7 +44,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/course_name"
+                android:id="@+id/course_name_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"

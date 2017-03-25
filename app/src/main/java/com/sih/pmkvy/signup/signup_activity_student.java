@@ -96,7 +96,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
 
  class get_request extends AsyncTask<String,Void,String> {
     String name,email,pass;
-     JSONObject json;
+     JSONObject json1;
     public String result;
      boolean flag;
      Context context;
@@ -113,7 +113,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
         if(flag)
         Toast.makeText(context.getApplicationContext(),"Account Created Successful",Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(context.getApplicationContext(),"Account Creation Failed",Toast.LENGTH_LONG).show();
+            Toast.makeText(context.getApplicationContext(),"Account Creation Failed"+s+json1.toString(),Toast.LENGTH_LONG).show();
 
     }
 
@@ -122,7 +122,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     protected String doInBackground(String... params) {
 
         try {
-            String link=context.getResources().getString(R.string.link)+"/api/users/";
+            String link="http://3f8c5069.ngrok.io/api/users/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -134,7 +134,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
             con.setDoOutput(true);
             OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
 
-            json=new JSONObject();
+            json1=new JSONObject();
             JSONObject add=new JSONObject();
 
             add.put("user_name",name);
@@ -142,7 +142,10 @@ public class signup_activity_student extends AppCompatActivity implements View.O
             add.put("user_email",email);
             add.put("user_last_login","2017-03-20");
             add.put("user_date_joined","2017-03-20");
-            json.put("data",add);
+            add.put("user_registration_status",false);
+
+            json1.put("data",add);
+            json1=add;
 
 
             wr.write(add.toString());

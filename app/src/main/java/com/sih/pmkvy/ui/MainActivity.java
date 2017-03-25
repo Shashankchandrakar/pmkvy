@@ -11,18 +11,19 @@ import com.sih.pmkvy.R;
 import com.sih.pmkvy.find_centre.traning_centre;
 import com.sih.pmkvy.signup.signup_activity_student;
 import com.sih.pmkvy.login.*;
-import  com.sih.pmkvy.homepage.*;
+import com.sih.pmkvy.homepage.*;
 import com.sih.pmkvy.settings.*;
+import com.sih.pmkvy.course_provided_center.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, centre_list, login_btn, set_btn, course_info, home_page;
+    Button signup, centre_list, login_btn, set_btn, course_info, home_page, course_provided;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        course_provided = (Button) findViewById(R.id.course_btn_main);
         signup = (Button) findViewById(R.id.goto_signup);
         set_btn = (Button) findViewById(R.id.settings);
         home_page = (Button) findViewById(R.id.homepage_btn);
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         course_info = (Button) findViewById(R.id.courseinfo);
 
         login_btn.setOnClickListener(this);
+        course_provided.setOnClickListener(this);
         signup.setOnClickListener(this);
         centre_list.setOnClickListener(this);
         set_btn.setOnClickListener(this);
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent login = new Intent(this, login_activity_student.class);
         Intent settings = new Intent(this, settings.class);
         Intent course = new Intent(this, course_info_activity.class);
-        Intent homepage=new Intent(this,homepage.class);
+        Intent homepage = new Intent(this, homepage.class);
+        Intent course_provided = new Intent(this, course_provide_center_activity.class);
         if (R.id.goto_signup == v.getId()) {
             startActivity(signup);
 
@@ -59,9 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(login);
                 } else if (R.id.settings == v.getId()) {
                     startActivity(settings);
-                } else if(R.id.homepage_btn==v.getId()) {
+                } else if (R.id.homepage_btn == v.getId()) {
                     startActivity(homepage);
-                }else {
+                } else if (R.id.course_btn_main == v.getId()) {
+                    startActivity(course_provided);
+                } else {
                     startActivity(course);
                 }
             }

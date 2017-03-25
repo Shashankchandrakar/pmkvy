@@ -111,8 +111,8 @@ class get_request extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         try {
-            //String link="http://3a7c3848.ngrok.io/api/logincheck/";
-            String link=context.getResources().getString(R.string.link)+"/api/singletrainingcenter/";
+            String link=context.getResources().getString(R.string.link)+"/api/logincheck/";
+            //String link=context.getResources().getString(R.string.link)+"/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -127,10 +127,10 @@ class get_request extends AsyncTask<String,Void,String> {
             json=new JSONObject();
             JSONObject add=new JSONObject();
 
-            //add.put("user_name",name);
-            //add.put("user_password","pass");
+            add.put("user_email",email);
+            add.put("user_password",pass);
             //add.put("user_email","teste");
-            add.put("center_id","fdkskfb4343");
+            //add.put("center_id","fdkskfb4343");
             //add.put("user_last_login","2017-03-20");
             //add.put("user_date_joined","2017-03-20");
             json.put("data",add);

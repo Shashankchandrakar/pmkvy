@@ -114,16 +114,16 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item;
-        if (position > 1) {
+        if (position >=1) {
             if (parent.getId() == R.id.state_training_center) {
 
                 item = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner);
+                //new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner);
             } else {
                 item = parent.getItemAtPosition(position).toString();
-
                 Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                new get_request(getApplicationContext(),centre_list,centre_lists_adapter);
             }
 
             Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
