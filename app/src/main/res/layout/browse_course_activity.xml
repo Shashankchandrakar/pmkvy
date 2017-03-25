@@ -14,7 +14,7 @@
         android:weightSum="2">
 
         <Spinner
-            android:id="@+id/state_training_center"
+            android:id="@+id/sector_course"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         </Spinner>
 
         <Spinner
-            android:id="@+id/district_training_center"
+            android:id="@+id/role_course"
             style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical">

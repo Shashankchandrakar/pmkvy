@@ -1,7 +1,6 @@
 package com.sih.pmkvy.find_centre;
 
-import com.sih.pmkvy.database.databse_handler_training_centre;
-import com.sih.pmkvy.database.sqlite_training_centre_data;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,17 +27,14 @@ import com.sih.pmkvy.adapter.centre_list_adapter;
 import com.sih.pmkvy.ui.DividerItemDecoration;
 import com.sih.pmkvy.centre_complete_info.*;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URI;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -193,7 +189,7 @@ class get_request extends AsyncTask<String, Void, String> {
 
         try {
 
-            String link = context.getResources().getString(R.string.link)+"/api/trainingcenter/";
+            String link = context.getResources().getString(R.string.link) + "/api/trainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -293,7 +289,7 @@ class get_request_state extends AsyncTask<String, Void, String> {
 
         try {
 
-            String link = context.getResources().getString(R.string.link)+"/api/trainingcenter/";
+            String link = context.getResources().getString(R.string.link) + "/api/trainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

@@ -57,7 +57,7 @@
                         <Button
 
                             android:id="@+id/b1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:layout_weight="1"
                             android:background="@android:color/holo_orange_light"
@@ -75,7 +75,7 @@
 
                         <Button
                             android:id="@+id/b2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:background="@android:color/holo_orange_light"
                             android:text="Find Nearest Traning Centre"
