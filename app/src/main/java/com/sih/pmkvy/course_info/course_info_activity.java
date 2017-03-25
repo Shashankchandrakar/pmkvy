@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
@@ -32,7 +33,8 @@ public class course_info_activity extends AppCompatActivity {
 
     List<couse_info_data> course;
     RecyclerView rv;
-    String center_id, course_id,job_role_name;
+    String center_id, courseid, job_role_name;
+    TextView course_name, course_id, skill_sector, job_role;
 
     @Override
 
@@ -47,10 +49,14 @@ public class course_info_activity extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         center_id = b.getString("training_center_id");
-        course_id = b.getString("course_id");
-        job_role_name=b.getString("job_role_name");
+        courseid = b.getString("course_id");
+        job_role_name = b.getString("job_role_name");
         course = new ArrayList<>();
-        new get_request(this, course, rv, center_id, course_id,job_role_name).execute();
+        course_name = (TextView) findViewById(R.id.course_name_courseinfo);
+        job_role = (TextView) findViewById(R.id.job_role_courseinfo);
+        course_id = (TextView) findViewById(R.id.course_id_courseinfo);
+        skill_sector = (TextView) findViewById(R.id.skill_sector_courseinfo);
+        new get_request(this, course, rv, center_id, courseid, job_role_name, course_name, course_id, skill_sector, job_role).execute();
         InitializedData();
         InitializeAdapter();
 
@@ -77,28 +83,38 @@ class get_request extends AsyncTask<String, Void, String> {
     Context context;
     List<couse_info_data> course;
     RecyclerView rv;
-    String center_id, course_id,job_role_name;
+    String center_id, course_id, job_role_name;
     JSONObject json;
     Boolean flag;
+    TextView course_name_t, course_id_t, skill_sector_t, job_role_t;
 
 
-    public get_request(Context context, List<couse_info_data> course, RecyclerView rv, String center_id, String course_id,String job_role_name) {
+    public get_request(Context context, List<couse_info_data> course, RecyclerView rv, String center_id, String course_id
+            , String job_role_name, TextView course_name_t, TextView course_id_t, TextView skill_sector_t, TextView job_role_t) {
         this.context = context;
+        this.course_name_t = course_name_t;
+        this.course_id_t = course_id_t;
+        this.skill_sector_t = skill_sector_t;
         this.course = course;
         this.rv = rv;
+        this.job_role_t = job_role_t;
         this.center_id = center_id;
         this.course_id = course_id;
-        this.job_role_name=job_role_name;
+        this.job_role_name = job_role_name;
 
     }
 
     @Override
     protected void onPostExecute(String s) {
-        Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-        String job_sector, job_role, course_name;
+        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+        String job_sector, course_id, course_name;
         //TODO: Add validate check so that result is true or not
 
         try {
+            JSONObject obj = new JSONObject(s);
+            course_name = new JSONObject("course_id").getString("course_name");
+            course_id = new JSONObject("course_id").getString("course_id");
+
 
 
         } catch (Exception e) {
@@ -125,8 +141,8 @@ class get_request extends AsyncTask<String, Void, String> {
             JSONObject add = new JSONObject();
 
             //add.put("job_role_name", job_role_name);
-            add.put("training_center_id","t1");
-            add.put("course_id","c1");
+            add.put("training_center_id", "t1");
+            add.put("course_id", "c1");
 
             wr.write(add.toString());
             wr.flush();

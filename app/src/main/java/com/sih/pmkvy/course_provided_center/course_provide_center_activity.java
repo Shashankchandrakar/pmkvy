@@ -63,12 +63,19 @@ public class course_provide_center_activity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Intent course_info = new Intent(view.getContext(), course_info_activity.class);
-                course_info.putExtra("training_center_id", center_id);
+
                 TextView job_role = (TextView) view.findViewById(R.id.job_role_cardview_course);
                 String job_role_info = job_role.getText().toString();
                 TextView course_id=(TextView)view.findViewById(R.id.course_id_course);
+                TextView course_name=(TextView)view.findViewById(R.id.course_name_course);
+                TextView job_sector=(TextView)view.findViewById(R.id.job_sector_cardview_course);
+
+                course_info.putExtra("training_center_id", center_id);
+                course_info.putExtra("job_sector", job_sector.getText().toString());
+                course_info.putExtra("course_name",course_name.getText().toString());
                 course_info.putExtra("course_id",course_id.getText().toString());
                 course_info.putExtra("job_role_name", job_role_info);
+
                 startActivity(course_info);
                 //Toast.makeText(view.getContext(),"LOL"+center_id,Toast.LENGTH_SHORT).show();
 
