@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.sih.pmkvy.R;
 
@@ -86,7 +87,7 @@ class get_request extends AsyncTask<String, Void, String> {
                 job_sector = obj4.getString("sector_skill_council");
                 job_role = obj4.getString("job_role_name");
                 course_name = obj3.getJSONObject("course_id").getString("course_name");
-                //Toast.makeText(context.getApplicationContext(),job_sector,Toast.LENGTH_LONG).show();
+                Toast.makeText(context.getApplicationContext(),job_sector,Toast.LENGTH_LONG).show();
                 course.add(new center_provide_center_data(job_sector, job_role, course_name));
 
 

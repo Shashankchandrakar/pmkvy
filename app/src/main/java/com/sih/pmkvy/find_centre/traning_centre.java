@@ -1,7 +1,6 @@
 package com.sih.pmkvy.find_centre;
 
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -114,7 +113,7 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item;
-        if (position >=1) {
+        if (position >= 1) {
             if (parent.getId() == R.id.state_training_center) {
 
                 item = parent.getItemAtPosition(position).toString();
@@ -123,7 +122,7 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
             } else {
                 item = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                new get_request(getApplicationContext(),centre_list,centre_lists_adapter);
+                new get_request(getApplicationContext(), centre_list, centre_lists_adapter);
             }
 
             Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
@@ -154,7 +153,8 @@ class get_request extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        //Toast.makeText(context.getApplicationContext(), res+s, Toast.LENGTH_LONG).show();
+
+        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
         StringBuilder center_name;
         StringBuilder center_address;
         StringBuilder center_phone;
