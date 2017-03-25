@@ -44,7 +44,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/cousename"
+                        android:id="@+id/course_name_courseinfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -70,7 +70,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/couseid"
+                        android:id="@+id/course_id_courseinfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -90,44 +90,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
-                        android:text="Skill Factor :"
+                        android:text="Skill Sector :"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/skillfactor"
+                        android:id="@+id/skill_sector_courseinfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:hint="Skill Factor"
+                        android:hint="Skill Sector"
                         android:textSize="20dp" />
 
                 </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="7dp"
-                    android:weightSum="2">
 
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:text="Course Code :"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/coursecode"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:hint="Course code"
-                        android:textSize="20dp" />
-
-                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -221,9 +198,6 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
             >
-
-
-
 
         </android.support.v7.widget.RecyclerView>
 

@@ -19,13 +19,14 @@ public class course_provide_center_adapter extends RecyclerView.Adapter<course_p
 
     public static class course_provided_view_holder extends RecyclerView.ViewHolder {
         CardView cv;
-        TextView job_sector, job_role, course_name;
+        TextView job_sector, job_role, course_name,course_id;
 
         public course_provided_view_holder(View itemView) {
             super(itemView);
             job_sector = (TextView) itemView.findViewById(R.id.job_sector_cardview_course);
             job_role = (TextView) itemView.findViewById(R.id.job_role_cardview_course);
             course_name = (TextView) itemView.findViewById(R.id.course_name_course);
+            course_id=(TextView)itemView.findViewById(R.id.course_id_course);
         }
     }
 
@@ -54,6 +55,7 @@ public class course_provide_center_adapter extends RecyclerView.Adapter<course_p
         holder.job_sector.setText(courses.get(position).job_sector);
         holder.job_role.setText(courses.get(position).job_role);
         holder.course_name.setText(courses.get(position).course_name);
+        holder.course_id.setText(courses.get(position).course_id);
 
     }
 
