@@ -100,7 +100,7 @@ class get_request extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link = "http://081786cc.ngrok.io/api/singletrainingcenter/";
+            String link = context.getResources().getString(R.string.link)+"/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

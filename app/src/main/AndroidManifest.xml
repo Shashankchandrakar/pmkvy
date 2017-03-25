@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sih.pmkvy" >
+    package="com.sih.pmkvy">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ui.MainActivity" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup.signup_activity_student" android:theme="@style/AppTheme" />
-        <activity android:name=".find_centre.traning_centre" android:theme="@style/AppTheme" />
-        <activity android:name=".Get_Requst_server.get_data_server" android:theme="@style/AppTheme" />
-        <activity android:name=".centre_complete_info.centre_info_display" android:theme="@style/AppTheme" />
-        <activity android:name=".login.login_activity_student" android:theme="@style/AppTheme" />
-        <activity android:name=".homepage.homepage" android:theme="@style/AppTheme" />
+        <activity
+            android:name=".signup.signup_activity_student"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".find_centre.traning_centre"
+            android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".centre_complete_info.centre_info_display"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".login.login_activity_student"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".course_info.course_info_activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".homepage.homepage"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".settings.settings"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

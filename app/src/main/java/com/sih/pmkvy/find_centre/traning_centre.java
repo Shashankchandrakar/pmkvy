@@ -193,7 +193,7 @@ class get_request extends AsyncTask<String, Void, String> {
 
         try {
 
-            String link = "http://081786cc.ngrok.io/api/trainingcenter/";
+            String link = context.getResources().getString(R.string.link)+"/api/trainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -293,7 +293,7 @@ class get_request_state extends AsyncTask<String, Void, String> {
 
         try {
 
-            String link = "http://081786cc.ngrok.io/api/trainingcenter/";
+            String link = context.getResources().getString(R.string.link)+"/api/trainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

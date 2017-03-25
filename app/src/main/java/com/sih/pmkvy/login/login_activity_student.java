@@ -54,8 +54,6 @@ public class login_activity_student extends AppCompatActivity implements View.On
             //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
             get_request req= new get_request(student_email.getText().toString(),student_password.getText().toString(),v.getContext());
             req.execute();
-
-
             //(req.getStatus()!=AsyncTask.Status.FINISHED)
             //Toast.makeText(v.getContext(),"After Execution",Toast.LENGTH_SHORT).show();
             //TODO: send data to server to create account
@@ -114,7 +112,7 @@ class get_request extends AsyncTask<String,Void,String> {
 
         try {
             //String link="http://3a7c3848.ngrok.io/api/logincheck/";
-            String link="http://3a7c3848.ngrok.io/api/singletrainingcenter/";
+            String link=context.getResources().getString(R.string.link)+"/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 

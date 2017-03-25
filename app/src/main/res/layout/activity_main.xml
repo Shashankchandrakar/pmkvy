@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="16dp"
 
     tools:context="com.sih.pmkvy.ui.MainActivity">
-
     <Button
         android:id="@+id/goto_training_centre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/goto_training_centre" />
-
+        android:text="@string/goto_training_centre"/>
     <Button
+        android:layout_width="wrap_content"
         android:id="@+id/goto_signup"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/goto_sign_up" />
-
+        android:text="@string/goto_sign_up"/>
     <Button
-        android:id="@+id/login_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:id="@+id/login_main"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="settings"
+        android:id="@+id/settings"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CourseInfo"
+        android:id="@+id/courseinfo"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/homepage_btn"
+        android:text="Home page"/>
 </LinearLayout>
 
 
