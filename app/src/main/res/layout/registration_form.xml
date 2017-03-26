@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +29,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginBottom="6dp"
                 android:layout_marginTop="6dp"
                 android:background="@color/colorButton">
 
@@ -47,7 +44,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -334,7 +334,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginBottom="6dp"
                 android:layout_marginTop="6dp"
                 android:background="@color/colorButton">
 
@@ -350,7 +349,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -447,7 +449,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginBottom="6dp"
                 android:layout_marginTop="6dp"
                 android:background="@color/colorButton">
 
@@ -463,7 +464,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -673,6 +677,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
                 android:background="@color/colorButton"
                 android:gravity="center"
                 android:text="Update" />
