@@ -1,4 +1,4 @@
-package com.sih.pmkvy.ui;
+package com.sih.pmkvy.homepage;
 
 import android.content.Intent;
 import android.os.Bundle;

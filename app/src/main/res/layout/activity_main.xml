@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:orientation="vertical"
-    android:paddingTop="16dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="16dp"
 
     tools:context="com.sih.pmkvy.ui.MainActivity">
+
     <Button
         android:id="@+id/goto_training_centre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/goto_training_centre"/>
+        android:text="@string/goto_training_centre" />
+
     <Button
-        android:layout_width="wrap_content"
         android:id="@+id/goto_signup"
-        android:layout_height="wrap_content"
-        android:text="@string/goto_sign_up"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/login_main"/>
+        android:text="@string/goto_sign_up" />
+
     <Button
+        android:id="@+id/login_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="settings"
-        android:id="@+id/settings"/>
+        android:text="Login" />
+
     <Button
+        android:id="@+id/settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CourseInfo"
-        android:id="@+id/courseinfo"/>
+        android:text="settings" />
+
     <Button
+        android:id="@+id/courseinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="CourseInfo" />
+
+    <Button
         android:id="@+id/homepage_btn"
-        android:text="Home page"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Home page" />
+
+    <Button
         android:id="@+id/course_btn_main"
-        android:text="course provided"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="course provided" />
+
+    <Button
         android:id="@+id/registration_form"
-        android:text="Register"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS" />
 </LinearLayout>
 
 

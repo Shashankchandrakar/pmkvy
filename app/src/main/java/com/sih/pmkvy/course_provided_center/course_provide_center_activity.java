@@ -193,7 +193,3 @@ class get_request extends AsyncTask<String, Void, String> {
     }
 }
 
-class courseid {
-    public String course_id;
-
-}

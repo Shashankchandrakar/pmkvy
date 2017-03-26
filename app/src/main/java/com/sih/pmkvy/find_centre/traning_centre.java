@@ -49,7 +49,7 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
     private List<find_centre> centre_list = new ArrayList<>();
     private RecyclerView recyclerView;
     private centre_list_adapter centre_lists_adapter;
-
+    private List<String> district;
     Spinner district_spinner, state_spinner;
 
     @Override
@@ -86,8 +86,8 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
 
             }
         }));
-        get_request a = new get_request(getApplicationContext(), centre_list, centre_lists_adapter);
-        a.execute();
+        //get_request a = new get_request(getApplicationContext(), centre_list, centre_lists_adapter);
+        //a.execute();
         district_spinner.setOnItemSelectedListener(this);
         state_spinner.setOnItemSelectedListener(this);
 
@@ -99,13 +99,11 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<String> state_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, state);
         state_spinner.setAdapter(state_dataAdapter);
 
-        List<String> district = new ArrayList<String>();
-        district.add("Select District");
-        district.add("Durg");
-        district.add("Raipur");
+         district = new ArrayList<String>();
+         //district.add("Select District");
 
-        ArrayAdapter<String> district_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, district);
-        district_spinner.setAdapter(district_dataAdapter);
+
+
 
     }
 
@@ -117,15 +115,16 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
             if (parent.getId() == R.id.state_training_center) {
 
                 item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                //new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner);
+                //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner,district).execute();
             } else {
                 item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                new get_request(getApplicationContext(), centre_list, centre_lists_adapter);
+                //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                new get_request(getApplicationContext(), centre_list, centre_lists_adapter,item).execute();
+
             }
 
-            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -141,10 +140,12 @@ class get_request extends AsyncTask<String, Void, String> {
     JSONObject json;
     boolean flag;
     Context context;
+    String district;
     List<find_centre> center_list;
     centre_list_adapter centre_lists_adapter;
 
-    public get_request(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter) {
+    public get_request(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter,String district) {
+        this.district=district;
         this.context = context;
         this.centre_lists_adapter = centre_lists_adapter;
         this.center_list = center_list;
@@ -203,7 +204,7 @@ class get_request extends AsyncTask<String, Void, String> {
             json = new JSONObject();
             JSONObject add = new JSONObject();
 
-            add.put("training_center_district", "durg");
+            add.put("training_center_district",district);
 
             //json.put("data", add);
 
@@ -247,37 +248,40 @@ class get_request_state extends AsyncTask<String, Void, String> {
     Spinner district_spinner;
     List<find_centre> center_list;
     centre_list_adapter centre_lists_adapter;
+    List<String> district;
 
-    public get_request_state(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter, String state, Spinner district_spinner) {
+    public get_request_state(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter, String state, Spinner district_spinner,List<String> district) {
         this.context = context;
         this.district_spinner = district_spinner;
         this.centre_lists_adapter = centre_lists_adapter;
         this.center_list = center_list;
         this.state = state;
+        this.district=district;
     }
 
     @Override
     protected void onPostExecute(String s) {
-        //Toast.makeText(context.getApplicationContext(), res+s, Toast.LENGTH_LONG).show();
+        //
         StringBuilder district_name;
-        List<String> district = new ArrayList<String>();
-        district.add("Select District");
+
 
 
         try {
+            district.add("Select District");
             JSONObject jsonObject = new JSONObject(s);
-            JSONArray jsonArray = jsonObject.getJSONArray("data");
+            JSONArray jsonArray = jsonObject.getJSONArray("district");
+
 
             for (int i = 0; i < jsonArray.length(); i++) {
 
-                JSONObject obj = jsonArray.getJSONObject(i);
-                district.add(obj.getString("training_center_district"));
+                //Toast.makeText(context.getApplicationContext(), jsonArray.get(i).toString(), Toast.LENGTH_LONG).show();
+                district.add(jsonArray.get(i).toString());
 
 
             }
             ArrayAdapter<String> district_dataAdapter = new ArrayAdapter<String>(context.getApplicationContext(), android.R.layout.simple_spinner_item, district);
-
             district_spinner.setAdapter(district_dataAdapter);
+
         } catch (Exception e) {
 
         }
@@ -289,7 +293,7 @@ class get_request_state extends AsyncTask<String, Void, String> {
 
         try {
 
-            String link = context.getResources().getString(R.string.link) + "/api/trainingcenter/";
+            String link = context.getResources().getString(R.string.link) + "/api/districtlist/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
@@ -303,7 +307,7 @@ class get_request_state extends AsyncTask<String, Void, String> {
             json = new JSONObject();
             JSONObject add = new JSONObject();
 
-            add.put("training_center_state", state);
+            add.put("state", "chhattisgarh");
 
             //json.put("data", add);
 

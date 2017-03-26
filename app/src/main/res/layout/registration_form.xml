@@ -99,7 +99,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Email"
                                 android:inputType="textEmailAddress"
-                                android:text="vaibhavkumarpande@gmail.com" />
+                                android:text="appuser1@gmail.com" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -135,7 +135,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Date of birth"
                                 android:inputType="textEmailAddress"
-                                android:text="01-01-2001" />
+                                android:text="2001-01-12" />
                             <!-- TODO: Add datepicker for date field -->
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
