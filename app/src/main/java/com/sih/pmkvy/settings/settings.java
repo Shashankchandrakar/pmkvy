@@ -1,5 +1,6 @@
 package com.sih.pmkvy.settings;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.sih.pmkvy.R;
-import com.sih.pmkvy.homepage.homepage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +111,7 @@ public class settings extends AppCompatActivity implements AdapterView.OnItemSel
 
     @Override
     public void onClick(View v) {
-        Intent home=new Intent(this,homepage.class);
-        startActivity(home);
+       //Intent home=new Intent(this,homepage.class);
+        //startActivity(home);
     }
 }

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_orange_dark">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="50dp"
+                        android:text="ABOUT PMKVY"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textColorHighlight="@color/cardview_shadow_end_color"
+                        android:textSize="40dp"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="465dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/holo_orange_light"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="30dp"
+
+                        android:text="About Ministry of Skill Development and Entrepreneurship:- "
+                        android:textColor="@android:color/black"
+                        android:textSize="25dp"
+
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="30dp"
+
+                        android:text="
+The changing demographic profile of the country, with 54% of its population under 25 years of age, rising aspirations of the youth seeking better jobs, and growing expectations of employers for an efficient, well trained workforce have contributed to a focus on skill development in India. Recognising the urgency to reap the benefits of the demographic dividend and the need for coordinating skill development efforts in the country, Government of India notified the formation of Department of Skill Development and Entrepreneurship on 31st July, 2014 that became a full-fledged Ministry of Skill Development and Entrepreneurship (MSDE) on 9th Nov, 2014.
+MSDE is responsible for coordination with all concerned for developing an appropriate skill development framework, removal of disconnect between demand and supply of skilled manpower, mapping of existing skills, doing market research, devising training curriculum, industry-institute linkage, bringing PPP element in skilling, making broad policies for all other Ministries/Departments, framing policies for soft skills, computer education, academic equivalence of skill sets, work relating to Industrial Training Institutes (ITIs) and expansion of youth entrepreneurship education. The Ministry aims to Skill on a large Scale with Speed and high Standards in order to achieve the overarching vision of a 'Skilled India' "
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"
+
+                        android:textStyle="italic" />
+                </TableRow>
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="30dp"
+
+                        android:text="About NSDC"
+                        android:textColor="@android:color/black"
+                        android:textSize="25dp"
+
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="30dp"
+
+                        android:text="The National Skill Development Corporation India, (NSDC) is a one of its kind, Public Private Partnership in India. It aims to promote skill development by catalyzing creation of large, quality, for-profit vocational institutions. NSDC provides funding to build scalable, for-profit vocational training initiatives. Its mandate is also to enable support systems such as quality assurance, information systems and train the trainer academies either directly or through partnerships"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"
+
+                        android:textStyle="italic" />
+                </TableRow>
+
+                <TableRow android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="30dp"
+                        android:text=""
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"
+
+                        android:textStyle="italic" />
+                </TableRow>
+
+
+            </TableLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
