@@ -11,110 +11,113 @@
         app:cardElevation="7dp"
         app:cardUseCompatPadding="true">
 
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="7dp"
-    android:paddingBottom="10dp"
-    >
-    <TableRow
-        android:paddingTop="10dp"
-        android:weightSum="2">
-        <TextView
-          android:id="@+id/starting_info"
-            android:layout_height="wrap_content"
+        <TableLayout
             android:layout_width="match_parent"
-            android:text="Starting Date:-"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_weight="0.5"/>
-
-        <TextView
-            android:id="@+id/starting_data"
-            android:layout_weight="1.5"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Starting Date"
+            android:paddingBottom="10dp"
+            android:paddingLeft="7dp">
 
-            android:textSize="20dp" />
+            <TableRow
+                android:paddingTop="10dp"
+                android:weightSum="2">
 
+                <TextView
+                    android:id="@+id/starting_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Starting Date:-"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/starting_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:hint="Starting Date"
 
-    </TableRow>
-    <TableRow
-        android:paddingTop="7dp"
-        android:weightSum="2">
-        <TextView
-        android:id="@+id/ending_inf0"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Ending Date:-"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_weight="0.5"/>
-
-        <TextView
-            android:id="@+id/ending_data"
-            android:layout_weight="1.5"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Ending Date"
-
-            android:textSize="20dp" />
+                    android:textSize="20dp" />
 
 
+            </TableRow>
 
-    </TableRow>
-    <TableRow
-        android:paddingTop="7dp"
-        android:weightSum="2">
-        <TextView
-          android:id="@+id/seats_info"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Seats :-"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_weight="0.5"/>
+            <TableRow
+                android:paddingTop="7dp"
+                android:weightSum="2">
 
-        <TextView
-            android:id="@+id/seats_data"
-            android:layout_weight="1.5"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="seats"
+                <TextView
+                    android:id="@+id/ending_inf0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Ending Date:-"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/ending_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:hint="Ending Date"
 
-
-
-    </TableRow>
-    <TableRow
-        android:paddingTop="7dp"
-        android:weightSum="2">
-        <TextView
-            android:id="@+id/status_info"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Status:-"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_weight="0.5"/>
-
-        <TextView
-            android:id="@+id/status_data"
-            android:layout_weight="1.5"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Status"
-            android:textSize="20dp" />
+                    android:textSize="20dp" />
 
 
+            </TableRow>
 
-    </TableRow>
+            <TableRow
+                android:paddingTop="7dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/seats_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Seats :-"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/seats_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:hint="seats"
+
+                    android:textSize="20dp" />
 
 
-</TableLayout>
+            </TableRow>
+
+            <TableRow
+                android:paddingTop="7dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/status_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Status:-"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/status_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:hint="Status"
+                    android:textSize="20dp" />
+
+
+            </TableRow>
+
+
+        </TableLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
