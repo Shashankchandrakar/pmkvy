@@ -57,7 +57,16 @@
         <activity
             android:name=".gps_location.gps_location"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".about_pmkvy.about_pmkvy"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".feedback.feedback"
+            android:theme="@style/AppTheme" />
 
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.MainActivity"/>
     </application>
 
 </manifest>

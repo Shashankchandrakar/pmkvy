@@ -1,10 +1,13 @@
 package com.sih.pmkvy.ui;
 
+
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 import com.sih.pmkvy.gps_location.*;
 import com.sih.pmkvy.course_info.course_info_activity;
 import com.sih.pmkvy.R;
@@ -16,9 +19,10 @@ import com.sih.pmkvy.settings.*;
 import com.sih.pmkvy.course_provided_center.*;
 import com.sih.pmkvy.registration_form.*;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, centre_list, login_btn, set_btn, course_info, home_page, course_provided, register_form, gps;
+    Button signup, centre_list, login_btn, set_btn, course_info, home_page, course_provided, register_form, gps, notifiaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         course_info = (Button) findViewById(R.id.courseinfo);
         register_form = (Button) findViewById(R.id.registration_form);
         gps = (Button) findViewById(R.id.gps);
+        notifiaction = (Button) findViewById(R.id.notification);
 
+        notifiaction.setOnClickListener(this);
         gps.setOnClickListener(this);
         register_form.setOnClickListener(this);
         login_btn.setOnClickListener(this);
@@ -56,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent course = new Intent(this, course_info_activity.class);
         Intent homepage = new Intent(this, homepage.class);
         Intent register = new Intent(this, registration_form.class);
-        Intent gps=new Intent(this,gps_location.class);
+        Intent gps = new Intent(this, gps_location.class);
         Intent course_provided = new Intent(this, course_provide_center_activity.class);
         if (R.id.goto_signup == v.getId()) {
             startActivity(signup);
@@ -78,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (R.id.gps == v.getId()) {
                     startActivity(gps);
 
+                } else if (v.getId() == R.id.notification) {
+                    startnotification();
                 } else {
                     startActivity(course);
                 }
@@ -89,4 +97,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //startActivity(inent);
     }
+
+    private void startnotification() {
+
+    }
+
 }
