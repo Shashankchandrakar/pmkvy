@@ -78,7 +78,6 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
                 centre_info_intent.putExtra("Phone", phone.getText());
                 startActivity(centre_info_intent);
 
-
             }
 
 

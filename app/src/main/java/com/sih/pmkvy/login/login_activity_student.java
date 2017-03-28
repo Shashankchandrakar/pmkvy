@@ -5,6 +5,7 @@ package com.sih.pmkvy.login;
  */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -49,10 +50,9 @@ public class login_activity_student extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         boolean checkValidData = checkData();
-        if(checkValidData)
-        {
+        if (checkValidData) {
             //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
-            get_request req= new get_request(student_email.getText().toString(),student_password.getText().toString(),v.getContext());
+            get_request req = new get_request(student_email.getText().toString(), student_password.getText().toString(), v.getContext());
             req.execute();
             //(req.getStatus()!=AsyncTask.Status.FINISHED)
             //Toast.makeText(v.getContext(),"After Execution",Toast.LENGTH_SHORT).show();
@@ -81,28 +81,34 @@ public class login_activity_student extends AppCompatActivity implements View.On
 }
 
 
-
-
-class get_request extends AsyncTask<String,Void,String> {
-    String name,email,pass;
+class get_request extends AsyncTask<String, Void, String> {
+    String name, email, pass;
     JSONObject json;
 
     boolean flag;
     Context context;
-    public get_request(String email,String pass,Context context) {
+
+    public get_request(String email, String pass, Context context) {
 
 
-        this.email=email;
-        this.pass=pass;
-        this.context=context;
+        this.email = email;
+        this.pass = pass;
+        this.context = context;
     }
 
     @Override
     protected void onPostExecute(String s) {
-        if(flag)
-            Toast.makeText(context.getApplicationContext(),"Login Successful "+s,Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(context.getApplicationContext(),"Login Failed"+s,Toast.LENGTH_LONG).show();
+        if (flag) {
+            Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
+            SharedPreferences sharedPreferences;
+            sharedPreferences=context.getApplicationContext().getSharedPreferences("PREF",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            editor.putString("NAME","TEST");
+            editor.apply();
+            editor.commit();
+
+        } else
+            Toast.makeText(context.getApplicationContext(), "Login Failed" + s, Toast.LENGTH_LONG).show();
 
     }
 
@@ -111,29 +117,29 @@ class get_request extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link=context.getResources().getString(R.string.link)+"/api/logincheck/";
+            String link = context.getResources().getString(R.string.link) + "/api/logincheck/";
             //String link=context.getResources().getString(R.string.link)+"/api/singletrainingcenter/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
 
             //Toast.makeText(context.getApplicationContext(),"LLLasfsdfdOLLL",Toast.LENGTH_LONG).show();
-            URL url=new URL(link);
-            URLConnection con=url.openConnection();
+            URL url = new URL(link);
+            URLConnection con = url.openConnection();
             //Toast.makeText(context.getApplicationContext(),"LLLasfdOLLL",Toast.LENGTH_LONG).show();
             con.setDoOutput(true);
-            OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 
-            json=new JSONObject();
-            JSONObject add=new JSONObject();
+            json = new JSONObject();
+            JSONObject add = new JSONObject();
 
-            add.put("user_email",email);
-            add.put("user_password",pass);
+            add.put("user_email", email);
+            add.put("user_password", pass);
             //add.put("user_email","teste");
             //add.put("center_id","fdkskfb4343");
             //add.put("user_last_login","2017-03-20");
             //add.put("user_date_joined","2017-03-20");
-            json.put("data",add);
+            json.put("data", add);
 
 
             wr.write(add.toString());
@@ -141,28 +147,24 @@ class get_request extends AsyncTask<String,Void,String> {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            StringBuilder sb=new StringBuilder();
-            String line=null;
+            StringBuilder sb = new StringBuilder();
+            String line = null;
 
-            while ((line=reader.readLine())!=null)
-            {
-                Log.d("LINE : ",line);
-                if(line.equals("true"))
-                {
+            while ((line = reader.readLine()) != null) {
+                Log.d("LINE : ", line);
+                if (line.equals("true")) {
                     //TODO: 3/20/2017 add response checking from server format is in jason
-                    flag=true;
-                }
-                else
-                    flag=false;
+                    flag = true;
+                } else
+                    flag = false;
 
                 sb.append(line);
             }
             return sb.toString();
 
 
-
         } catch (Exception e) {
-            Log.d("ERROR",e.getMessage());
+            Log.d("ERROR", e.getMessage());
             return "Exception: " + e.getMessage();
         }
 
