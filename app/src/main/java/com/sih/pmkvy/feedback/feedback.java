@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
@@ -26,9 +27,10 @@ import java.net.URLConnection;
  */
 
 public class feedback extends AppCompatActivity implements View.OnClickListener {
-    EditText _email, _name, _comment;
-    Button b1;
-    String email, name, comment;
+    EditText _email, _subject, _details;
+    RatingBar rating;
+    Button submit;
+
 
     @Override
 
@@ -37,18 +39,13 @@ public class feedback extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.feedback);
 
         this.setTitle("Feedback");
-        _name = (EditText) findViewById(R.id.name);
-        _email = (EditText) findViewById(R.id.email_feedback);
-        _comment = (EditText) findViewById(R.id.comment);
-
-        b1 = (Button) findViewById(R.id.button);
-
-        email = _email.getText().toString();
-        name = _name.getText().toString();
-        comment = _comment.getText().toString();
+        _subject = (EditText) findViewById(R.id.subject_feedback);
+        _details = (EditText) findViewById(R.id.details_feedback);
+        rating = (RatingBar) findViewById(R.id.rating);
+        submit = (Button) findViewById(R.id.submit_feedback);
 
 
-        b1.setOnClickListener(this);
+        submit.setOnClickListener(this);
 
 
     }
@@ -56,8 +53,24 @@ public class feedback extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (Check_data()) {
+            try {
+                JSONObject add = new JSONObject();
+                //Toast.makeText(v.getContext(),"HERE",Toast.LENGTH_LONG).show();
+                add.put("user_email", "testappuser@gmail.com");
+                add.put("training_center_id", "t1");
+                add.put("course_id", "c1");
+                add.put("subject", _subject.getText().toString());
+                add.put("detail", _details.getText().toString());
+                add.put("rating", 3);
+                new get_request(add, v.getContext()).execute();
 
-            new get_request(name,email,comment,v.getContext()).execute();
+            } catch (Exception e) {
+                Log.d("ERROR", e.getMessage());
+
+
+            }
+
+            //new get_request(name, email, comment, v.getContext()).execute();
 
         }
     }
@@ -65,53 +78,43 @@ public class feedback extends AppCompatActivity implements View.OnClickListener 
     boolean Check_data() {
         boolean flag = true;
 
-        if (name == null || name.length() <= 3) {
-            _name.setError("Name must be greater than 3 characters");
+        /*if (_subject == null || _subject.getText().length() <= 3) {
+            _subject.setError("Name must be greater than 3 characters");
             flag = false;
         } else {
-            _name.setError(null);
+            _subject.setError(null);
         }
 
-        if (email == null || !android.util.Patterns.EMAIL_ADDRESS.matcher(_email.getText()).matches()) {
+        if (_details == null) {
             flag = false;
-            _email.setError("Invalid Email Addresss");
+            _details.setError("Invalid Email Addresss");
 
         } else {
-            _email.setError(null);
+            _details.setError(null);
         }
-
-        if (comment == null || comment.length() <= 1) {
-            flag = false;
-            _comment.setError("Enter Comment");
-
-        } else {
-            _comment.setError(null);
-        }
+    */
         return flag;
     }
 }
 
 
-
-
-class get_request extends AsyncTask<String,Void,String> {
+class get_request extends AsyncTask<String, Void, String> {
     boolean flag;
-    String name,email,comment;
+    String name, email, comment;
     Context context;
+    JSONObject add;
 
-    public get_request(String name,String email,String comment,Context context) {
-
-        this.name=name;
-        this.email=email;
-        this.comment=comment;
-        this.context=context;
+    public get_request(JSONObject add, Context context) {
+        this.add = add;
+        this.context = context;
+        //Toast.makeText(context.getApplicationContext(),add.toString(),Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onPostExecute(String s) {
 
 
-        Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_LONG).show();
+        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
 
     }
 
@@ -120,63 +123,41 @@ class get_request extends AsyncTask<String,Void,String> {
 
         try {
 
-            String link="http://20a770be.ngrok.io/api/coursefeedback/";
-
-
+            String link = context.getResources().getString(R.string.link) + "/api/coursefeedback/";
 
 
             //Toast.makeText(context.getApplicationContext(),"LLLasfsdfdOLLL",Toast.LENGTH_LONG).show();
-            URL url=new URL(link);
-            URLConnection con=url.openConnection();
+            URL url = new URL(link);
+            URLConnection con = url.openConnection();
 
             con.setDoOutput(true);
-            OutputStreamWriter wr=new OutputStreamWriter(con.getOutputStream());
-
-
-            JSONObject add=new JSONObject();
-
-            add.put("user_email","testappuser@gmail.com");
-            add.put("training_center_id","t1");
-            add.put("course_id","c1");
-            add.put("subject",name);
-            add.put("detail",comment);
-            add.put("rating",3);
-
-
-
-
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 
 
             wr.write(add.toString());
             wr.flush();
 
 
-
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            StringBuilder sb=new StringBuilder();
-            String line=null;
+            StringBuilder sb = new StringBuilder();
+            String line = null;
 
-            while ((line=reader.readLine())!=null)
-            {
-                Log.d("LINE : ",line);
-                if(line.equals("true"))
-                {
+            while ((line = reader.readLine()) != null) {
+                Log.d("LINE : ", line);
+                if (line.equals("true")) {
                     //TODO: 3/20/2017 add response checking from server format is in jason
-                    flag=true;
-                }
-                else
-                    flag=false;
+                    flag = true;
+                } else
+                    flag = false;
 
                 sb.append(line);
             }
             return sb.toString();
 
 
-
         } catch (Exception e) {
-            Log.d("ERROR",e.getMessage());
+            Log.d("ERROR", e.getMessage());
             return "Exception: " + e.getMessage();
         }
 

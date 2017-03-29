@@ -1,138 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
-
-        <TableLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TableRow android:weightSum="2">
-                <TextView
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Course:"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
-
-
-                <Spinner
-                    android:layout_weight="1.5"
-
-                    android:spinnerMode="dropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </Spinner>
-
-            </TableRow>
-
-        </TableLayout>
+        android:padding="10dp">
 
         <LinearLayout
+            style="@style/feedback_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_orange_dark">
+            android:orientation="horizontal"
+            android:weightSum="10">
 
-            <TableLayout
+            <TextView
+                style="@style/feedback_field"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:text="Select Course" />
 
-            </TableLayout>
+            <Spinner
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
         </LinearLayout>
 
         <LinearLayout
+            style="@style/feedback_row"
             android:layout_width="match_parent"
-            android:layout_height="464dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
-            android:layout_gravity="fill_vertical">
-
-
-            <android.support.design.widget.TextInputLayout
+            <TextView
+                style="@style/feedback_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white"
-                >
-                <EditText
+                android:layout_weight="6"
+                android:text="Subject" />
 
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:hint="Name" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white">
-
-                <EditText
-                    android:id="@+id/email_feedback"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="Email"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white">
-
-                <EditText
-                    android:id="@+id/comment"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:textSize="20dp"
-                    android:hint="Comment"
-                    android:ellipsize="start"
-                    android:gravity="left"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TableRow android:weightSum="1">
-                    <Button
-                        android:layout_weight="1"
-                        android:id="@+id/button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-
-                        android:layout_marginTop="10dp"
-                        android:text="Submit"
-                        android:textSize="20dp"
-                        android:background="@android:color/holo_green_dark"/>
-
-                </TableRow>
-
-
-            </TableLayout>
-
-
+                android:layout_weight="4"
+                android:id="@+id/subject_feedback"
+                />
         </LinearLayout>
+
+        <LinearLayout
+            style="@style/feedback_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/feedback_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detail" />
+
+            <EditText
+                android:id="@+id/details_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/feedback_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:paddingTop="8dp"
+                android:text="Rating"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:isIndicator="true"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:id="@+id/submit_feedback"
+            android:background="@color/colorButton"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:text="Submit" />
     </LinearLayout>
 </ScrollView>

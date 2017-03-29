@@ -122,7 +122,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     protected String doInBackground(String... params) {
 
         try {
-            String link="http://3f8c5069.ngrok.io/api/users/";
+            String link=context.getResources().getString(R.string.link) +"/api/users/";
 
             //String data= "{'user_name':'name','user_password':'pass','user_email':'email'}";
 
