@@ -70,8 +70,12 @@
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".ui.MainActivity" />
+
         <activity
             android:name=".getdata"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".navigation_bar.navigation_bar"
             android:theme="@style/AppTheme" />
     </application>
 

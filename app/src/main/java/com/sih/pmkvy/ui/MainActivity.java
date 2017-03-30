@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.sih.pmkvy.navigation_bar.*;
 import com.sih.pmkvy.*;
 import com.sih.pmkvy.gps_location.*;
 import com.sih.pmkvy.course_info.course_info_activity;
@@ -26,13 +27,14 @@ import com.sih.pmkvy.registration_form.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, centre_list, login_btn, set_btn, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, session;
+    Button signup, nav, centre_list, login_btn, set_btn, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         feedback = (Button) findViewById(R.id.feedback_homepage);
+        nav = (Button) findViewById(R.id.nav);
         course_provided = (Button) findViewById(R.id.course_btn_main);
         signup = (Button) findViewById(R.id.goto_signup);
         set_btn = (Button) findViewById(R.id.settings);
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         session = (Button) findViewById(R.id.session);
 
         notifiaction.setOnClickListener(this);
+        nav.setOnClickListener(this);
         feedback.setOnClickListener(this);
         gps.setOnClickListener(this);
         register_form.setOnClickListener(this);
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent course_provided = new Intent(this, course_provide_center_activity.class);
         Intent session = new Intent(this, getdata.class);
         Intent feedback = new Intent(this, feedback.class);
+        Intent navi = new Intent(this, navigation_bar.class);
+
         if (R.id.goto_signup == v.getId()) {
             startActivity(signup);
 
@@ -99,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(session);
                 } else if (v.getId() == R.id.feedback_homepage) {
                     startActivity(feedback);
+                } else if (R.id.nav == v.getId()) {
+                    startActivity(navi);
                 } else {
                     startActivity(course);
                 }
