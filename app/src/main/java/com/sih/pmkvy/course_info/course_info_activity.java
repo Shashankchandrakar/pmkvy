@@ -37,7 +37,6 @@ public class course_info_activity extends AppCompatActivity {
     TextView course_name, course_id, skill_sector, job_role;
 
     @Override
-
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -115,7 +114,7 @@ class get_request extends AsyncTask<String, Void, String> {
         //TODO: Add validate check so that result is true or not
         String start, end;
         try {
-            JSONObject jsonObject=new JSONObject(s);
+            JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("data");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);

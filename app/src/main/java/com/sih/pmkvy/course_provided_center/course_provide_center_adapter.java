@@ -36,7 +36,6 @@ public class course_provide_center_adapter extends RecyclerView.Adapter<course_p
         this.courses = courses;
     }
 
-    //TODO Add onAttachedToRecyclerView Method
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {

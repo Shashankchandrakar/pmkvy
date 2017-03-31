@@ -77,6 +77,9 @@
         <activity
             android:name=".navigation_bar.navigation_bar"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".student_dashboard.dashboardactivity"
+            android:theme="@style/AppTheme" />w
     </application>
 
 </manifest>

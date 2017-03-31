@@ -93,6 +93,11 @@
             android:layout_height="wrap_content"
             android:text="Nav"
             android:id="@+id/nav"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dashboard"
+            android:text="dashboard"/>
     </LinearLayout>
 
 

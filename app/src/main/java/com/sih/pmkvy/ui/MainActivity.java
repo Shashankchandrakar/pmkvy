@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.sih.pmkvy.student_dashboard.*;
 import com.sih.pmkvy.navigation_bar.*;
 import com.sih.pmkvy.*;
 import com.sih.pmkvy.gps_location.*;
@@ -27,12 +28,13 @@ import com.sih.pmkvy.registration_form.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, nav, centre_list, login_btn, set_btn, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, session;
+    Button signup, nav, centre_list, login_btn, set_btn, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, dashboard, session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dashboard = (Button) findViewById(R.id.dashboard);
         feedback = (Button) findViewById(R.id.feedback_homepage);
         nav = (Button) findViewById(R.id.nav);
         course_provided = (Button) findViewById(R.id.course_btn_main);
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         session = (Button) findViewById(R.id.session);
 
         notifiaction.setOnClickListener(this);
+        dashboard.setOnClickListener(this);
         nav.setOnClickListener(this);
         feedback.setOnClickListener(this);
         gps.setOnClickListener(this);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent session = new Intent(this, getdata.class);
         Intent feedback = new Intent(this, feedback.class);
         Intent navi = new Intent(this, navigation_bar.class);
+        Intent dashboard = new Intent(this, dashboardactivity.class);
 
         if (R.id.goto_signup == v.getId()) {
             startActivity(signup);
@@ -106,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(feedback);
                 } else if (R.id.nav == v.getId()) {
                     startActivity(navi);
+                } else if (R.id.dashboard == v.getId()) {
+                    startActivity(dashboard);
                 } else {
                     startActivity(course);
                 }
