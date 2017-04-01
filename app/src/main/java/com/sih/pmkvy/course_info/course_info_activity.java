@@ -110,7 +110,6 @@ class get_request extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         //Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-
         //TODO: Add validate check so that result is true or not
         String start, end;
         try {
@@ -118,8 +117,8 @@ class get_request extends AsyncTask<String, Void, String> {
             JSONArray jsonArray = jsonObject.getJSONArray("data");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
-                start = obj.getString("batch_start_data");
-                end = obj.getString("batch_end_data");
+                start = obj.getString("batch_start_date");
+                end = obj.getString("batch_end_date");
                 course.add(new couse_info_data(start, end, "25", "Availaible"));
 
             }
@@ -152,8 +151,8 @@ class get_request extends AsyncTask<String, Void, String> {
             JSONObject add = new JSONObject();
 
             //add.put("job_role_name", job_role_name);
-            add.put("training_center_id", "t1");
-            add.put("course_id", "c1");
+            add.put("training_center_id", center_id);
+            add.put("course_id", course_id);
 
             wr.write(add.toString());
             wr.flush();

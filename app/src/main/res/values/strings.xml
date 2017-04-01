@@ -11,4 +11,5 @@
     <string name="poc_name_centre">Name :-</string>
     <string name="poc_email_centre">Email :-</string>
     <string name="link">http://192.168.43.5:8000</string>
+    <string name="notify_homepgae">Notify</string>
 </resources>

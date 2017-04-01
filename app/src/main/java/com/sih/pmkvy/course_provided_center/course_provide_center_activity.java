@@ -113,7 +113,7 @@ class get_request extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
 
-        //Toast.makeText(context.getApplicationContext(),s,Toast.LENGTH_LONG).show();
+
         String job_sector, job_role, course_name, course_id;
         //TODO: Add validate check so that result is true or not
 
@@ -128,6 +128,7 @@ class get_request extends AsyncTask<String, Void, String> {
                 JSONObject obj3 = obj2.getJSONObject(i);
 
                 job_sector = obj3.getJSONObject("course_id").getJSONObject("course_sector").getString("sector_skill_council_name");
+                //Toast.makeText(context.getApplicationContext(),job_sector,Toast.LENGTH_LONG).show();
                 job_role = obj3.getJSONObject("course_id").getJSONObject("course_job_role").getString("job_role_name");
                 course_name = obj3.getJSONObject("course_id").getString("course_name");
                 course_id = obj3.getJSONObject("course_id").getString("course_id");

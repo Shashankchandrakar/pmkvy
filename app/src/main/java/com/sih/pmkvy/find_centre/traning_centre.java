@@ -154,7 +154,7 @@ class get_request extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
 
-        //Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
+        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
         StringBuilder center_name;
         StringBuilder center_address;
         StringBuilder center_phone;
