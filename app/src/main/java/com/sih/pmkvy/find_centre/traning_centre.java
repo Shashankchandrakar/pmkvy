@@ -98,7 +98,7 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<String> state_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, state);
         state_spinner.setAdapter(state_dataAdapter);
 
-         district = new ArrayList<String>();
+         district = new ArrayList<>();
          //district.add("Select District");
 
 
@@ -154,7 +154,7 @@ class get_request extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
 
-        Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
         StringBuilder center_name;
         StringBuilder center_address;
         StringBuilder center_phone;

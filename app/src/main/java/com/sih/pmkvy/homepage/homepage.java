@@ -61,6 +61,9 @@ public class homepage extends AppCompatActivity implements View.OnClickListener 
             case R.id.find_training_center_homepage:
                 startActivity(find_training);
                 break;
+            case R.id.browse_course_homepage:
+                startActivity(browse_courses);
+                break;
 
         }
     }

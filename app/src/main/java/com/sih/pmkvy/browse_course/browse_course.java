@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.vision.text.Line;
+
 import com.sih.pmkvy.R;
 import com.sih.pmkvy.adapter.ClickListener;
 import com.sih.pmkvy.adapter.RecyclerTouchListener;
@@ -81,7 +81,7 @@ public class browse_course extends AppCompatActivity implements AdapterView.OnIt
             }
         }));*/
         courses = new ArrayList<>();
-        new get_request(this, courses, rv).execute();
+
     }
 
     @Override
@@ -94,6 +94,9 @@ public class browse_course extends AppCompatActivity implements AdapterView.OnIt
                 new get_request_role(view.getContext(), job_role, job_sector).execute();
                 break;
             case R.id.role_course_browse:
+                String job=parent.getItemAtPosition(position).toString();
+                //Toast.makeText(view.getContext(),"TRY",Toast.LENGTH_SHORT).show();
+                new get_request(view.getContext(),courses,rv,job).execute();
                 break;
         }
 
@@ -110,16 +113,15 @@ class get_request extends AsyncTask<String, Void, String> {
     List<browse_data> courses;
     RecyclerView rv;
     String center_id;
-
+    String job_role_n;
     JSONObject json;
     Boolean flag;
 
-    public get_request(Context context, List<browse_data> courses, RecyclerView rv) {
+    public get_request(Context context, List<browse_data> courses, RecyclerView rv,String job_role_n) {
+        this.job_role_n=job_role_n;
         this.context = context;
         this.courses = courses;
         this.rv = rv;
-
-
     }
 
     @Override
@@ -131,7 +133,6 @@ class get_request extends AsyncTask<String, Void, String> {
 
         try {
             JSONObject obj1 = new JSONObject(s);
-
             JSONArray obj2 = obj1.getJSONArray("data");
 
 
@@ -139,15 +140,13 @@ class get_request extends AsyncTask<String, Void, String> {
 
                 JSONObject obj3 = obj2.getJSONObject(i);
 
-                job_sector = obj3.getJSONObject("course_id").getJSONObject("course_sector").getString("sector_skill_council_name");
+                job_sector = obj3.getJSONObject("course_sector").getString("sector_skill_council_name");
                 //Toast.makeText(context.getApplicationContext(),job_sector,Toast.LENGTH_LONG).show();
-                job_role = obj3.getJSONObject("course_id").getJSONObject("course_job_role").getString("job_role_name");
-                course_name = obj3.getJSONObject("course_id").getString("course_name");
-                course_id = obj3.getJSONObject("course_id").getString("course_id");
+                job_role = obj3.getJSONObject("course_job_role").getString("job_role_name");
+                course_name = obj3.getString("course_name");
 
 
                 courses.add(new browse_data(job_sector, job_role, course_name));
-
 
             }
 
@@ -175,7 +174,7 @@ class get_request extends AsyncTask<String, Void, String> {
             json = new JSONObject();
             JSONObject add = new JSONObject();
 
-            add.put("job_role_name", "gardener");
+            add.put("job_role_name",job_role_n );
 
             wr.write(add.toString());
             wr.flush();

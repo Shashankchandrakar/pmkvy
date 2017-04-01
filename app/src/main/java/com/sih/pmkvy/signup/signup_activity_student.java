@@ -21,6 +21,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.sih.pmkvy.login.*;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -62,7 +64,7 @@ public class signup_activity_student extends AppCompatActivity implements View.O
         } else {
             boolean checkValidData = checkData();
             if (checkValidData) {
-                //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
                 get_request req = new get_request(student_name.getText().toString(), student_email.getText().toString(), student_password.getText().toString(), v.getContext());
                 req.execute();
 
