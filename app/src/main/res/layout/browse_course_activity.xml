@@ -16,22 +16,20 @@
         <Spinner
             android:id="@+id/sector_course_browse"
             style="@android:style/Widget.Holo.Light.Spinner"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="4dp"
             android:layout_weight="1">
 
         </Spinner>
-
         <Spinner
             android:id="@+id/role_course_browse"
             style="@android:style/Widget.Holo.Light.Spinner"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:clickable="false" />
-
+            android:layout_weight="1">
+        </Spinner>
     </LinearLayout>
     <View style="@style/horizontal_line_completed"/>
     <android.support.v7.widget.RecyclerView

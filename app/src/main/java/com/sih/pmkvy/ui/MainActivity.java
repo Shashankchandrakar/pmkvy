@@ -4,6 +4,7 @@ package com.sih.pmkvy.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -26,11 +27,14 @@ import com.sih.pmkvy.settings.*;
 import com.sih.pmkvy.course_provided_center.*;
 import com.sih.pmkvy.registration_form.*;
 
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, nav, centre_list, login_btn, set_btn,
+    Button signup, nav, centre_list, login_btn, set_btn, hindi, english,
             browse_course, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, dashboard, session;
+    Locale mLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gps = (Button) findViewById(R.id.gps);
         notifiaction = (Button) findViewById(R.id.notification);
         session = (Button) findViewById(R.id.session);
+        hindi = (Button) findViewById(R.id.hindi);
+        english = (Button) findViewById(R.id.english);
+
 
         notifiaction.setOnClickListener(this);
+        hindi.setOnClickListener(this);
+        english.setOnClickListener(this);
         dashboard.setOnClickListener(this);
         nav.setOnClickListener(this);
         feedback.setOnClickListener(this);
@@ -119,6 +128,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(dashboard);
                 } else if (v.getId() == R.id.browse_course_homepage) {
                     startActivity(browse_course);
+                } else if (R.id.hindi == v.getId()) {
+                    mLocale = new Locale("hi");
+                    Locale.setDefault(mLocale);
+                    Configuration config = new Configuration();
+                    config.locale = mLocale;
+                    getBaseContext().getResources().updateConfiguration(config,
+                            getBaseContext().getResources().getDisplayMetrics());
+                    MainActivity.this.setContentView(R.layout.activity_main);
+                    this.recreate();
+
+                } else if (R.id.english == v.getId()) {
+                    mLocale = new Locale("eng");
+                    Locale.setDefault(mLocale);
+                    Configuration config2 = new Configuration();
+                    config2.locale = mLocale;
+                    getBaseContext().getResources().updateConfiguration(config2,
+                            getBaseContext().getResources().getDisplayMetrics());
+                    this.setContentView(R.layout.activity_main);
+                    this.recreate();
+
                 } else {
                     startActivity(course);
                 }

@@ -140,4 +140,16 @@
         <item name="android:paddingLeft">12dp</item>
         <item name="android:textColor">#b9000000</item>
     </style>
+
+    <style name="complete_center_info_title">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="complete_center_detail_field">
+        <item name="android:padding">6dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
