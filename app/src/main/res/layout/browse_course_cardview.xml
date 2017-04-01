@@ -22,7 +22,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/job_sector_cardview"
+                android:id="@+id/job_sector_browse_course"
                 style="@style/browse_course_card_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
                 android:text="Job Sector" />
 
             <TextView
-                android:id="@+id/job_role_cardview"
+                android:id="@+id/job_role_browse_course"
                 style="@style/browse_course_card_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,20 +38,13 @@
                 android:text="Job Role" />
 
             <TextView
-                android:id="@+id/course_name"
+                android:id="@+id/course_name_browse_course"
                 style="@style/browse_course_card_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:text="Course Name" />
 
-            <TextView
-                android:id="@+id/centre_info"
-                style="@style/browse_course_card_field"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="" />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.sih.pmkvy.student_dashboard.*;
 import com.sih.pmkvy.navigation_bar.*;
 import com.sih.pmkvy.*;
+import com.sih.pmkvy.browse_course.*;
 import com.sih.pmkvy.gps_location.*;
 import com.sih.pmkvy.course_info.course_info_activity;
 import com.sih.pmkvy.R;
@@ -28,13 +29,15 @@ import com.sih.pmkvy.registration_form.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signup, nav, centre_list, login_btn, set_btn, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, dashboard, session;
+    Button signup, nav, centre_list, login_btn, set_btn,
+            browse_course, course_info, feedback, home_page, course_provided, register_form, gps, notifiaction, dashboard, session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dashboard = (Button) findViewById(R.id.dashboard);
+        browse_course = (Button) findViewById(R.id.browse_course_homepage);
         feedback = (Button) findViewById(R.id.feedback_homepage);
         nav = (Button) findViewById(R.id.nav);
         course_provided = (Button) findViewById(R.id.course_btn_main);
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register_form.setOnClickListener(this);
         login_btn.setOnClickListener(this);
         course_provided.setOnClickListener(this);
+        browse_course.setOnClickListener(this);
         signup.setOnClickListener(this);
         centre_list.setOnClickListener(this);
         set_btn.setOnClickListener(this);
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent session = new Intent(this, getdata.class);
         Intent feedback = new Intent(this, feedback.class);
         Intent navi = new Intent(this, navigation_bar.class);
+        Intent browse_course = new Intent(this, browse_course.class);
         Intent dashboard = new Intent(this, dashboardactivity.class);
 
         if (R.id.goto_signup == v.getId()) {
@@ -112,6 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(navi);
                 } else if (R.id.dashboard == v.getId()) {
                     startActivity(dashboard);
+                } else if (v.getId() == R.id.browse_course_homepage) {
+                    startActivity(browse_course);
                 } else {
                     startActivity(course);
                 }

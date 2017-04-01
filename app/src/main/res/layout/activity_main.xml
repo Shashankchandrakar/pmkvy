@@ -58,13 +58,15 @@
             android:id="@+id/course_btn_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="course provided" />
 
         <Button
             android:id="@+id/registration_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:text="Register"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/gps"
@@ -76,6 +78,7 @@
             android:id="@+id/notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="@string/notify_homepgae" />
 
         <Button
@@ -92,12 +95,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nav"
+            android:visibility="gone"
             android:id="@+id/nav"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dashboard"
             android:text="dashboard"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/browse_course_homepage"
+            android:text="Browse Course"/>
     </LinearLayout>
 
 

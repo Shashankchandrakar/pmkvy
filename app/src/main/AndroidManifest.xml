@@ -79,7 +79,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".student_dashboard.dashboardactivity"
-            android:theme="@style/AppTheme" />w
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".browse_course.browse_course"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
