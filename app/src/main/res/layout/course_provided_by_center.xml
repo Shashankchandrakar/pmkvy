@@ -34,103 +34,14 @@
             android:clickable="false"
             android:visibility="gone" />
     </LinearLayout>
-
-    <android.support.v7.widget.CardView
+    <TextView
+        style="@style/student_dashboard_section_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
+        android:text="@string/courses_under_training_center"
+        android:textAlignment="center"/>
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-
-            android:paddingLeft="5dp"
-            android:stretchColumns="1">
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Center Name"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/center_name_course_"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-
-            </TableRow>
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Center Address"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/center_address_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Center ID"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/center_id_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Training Partner"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/center_training_partner_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-            </TableRow>
-
-
-        </TableLayout>
-    </android.support.v7.widget.CardView>
-
+    <View style="@style/horizontal_line_ongoing"></View>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_course"
         android:layout_width="match_parent"
@@ -139,80 +50,6 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:stretchColumns="1">
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="POC Name"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/poc_name_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-
-            </TableRow>
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="POC Mail ID"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/poc_mail_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-
-            </TableRow>
-
-            <TableRow android:weightSum="5">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Center Rating"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/center_rating_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="SDC-Rowta"
-                    android:textSize="18sp" />
-
-            </TableRow>
-        </TableLayout>
-    </android.support.v7.widget.CardView>
 </LinearLayout>
 
 

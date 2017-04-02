@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="PERSONAL DETAILS"
+                android:text="@string/personal_details"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -63,7 +63,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Full name"
                                 android:inputType="text"
-                                android:text="Vaibhav Pandey" />
+                                android:text="@string/vaibhav_pandey" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -81,7 +81,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Father's Name"
                                 android:inputType="text"
-                                android:text="S.K.Pandey" />
+                                android:text="@string/s_k_pandey" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -99,7 +99,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Email"
                                 android:inputType="textEmailAddress"
-                                android:text="appuser1@gmail.com" />
+                                android:text="@string/appuser1_gmail_com" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -174,7 +174,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="8"
                             android:gravity="center_vertical"
-                            android:text="Category" />
+                            android:text="@string/category" />
 
                         <Spinner
                             android:id="@+id/student_category"
@@ -201,7 +201,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="8"
                             android:gravity="center_vertical"
-                            android:text="Gender" />
+                            android:text="@string/gender" />
 
                         <RadioGroup
                             android:id="@+id/reg_gender"
@@ -216,14 +216,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
-                                android:text="Male" />
+                                android:text="@string/male" />
 
                             <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/candidate_female"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="Female" />
+                                android:text="@string/female" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -244,7 +244,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="8"
                             android:gravity="center_vertical"
-                            android:text="Disabled" />
+                            android:text="@string/disabled" />
 
                         <RadioGroup
                             android:id="@+id/disable_reg"
@@ -259,14 +259,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
-                                android:text="Yes" />
+                                android:text="@string/yes" />
 
                             <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/candidate_disabled_false"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="No" />
+                                android:text="@string/no" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -287,7 +287,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="8"
                             android:gravity="center_vertical"
-                            android:text="BPL" />
+                            android:text="@string/bpl" />
 
                         <RadioGroup
                             android:id="@+id/bpl_reg"
@@ -302,14 +302,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
-                                android:text="Yes" />
+                                android:text="@string/yes_1" />
 
                             <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/candidate_bpl_false"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="No" />
+                                android:text="@string/no_1" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -330,7 +330,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="ADDRESS DETAILS"
+                android:text="@string/address_details"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -371,7 +371,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Street address"
                                 android:inputType="text"
-                                android:text="Flat no. 204, Shiv Kripa Tower-1" />
+                                android:text="@string/flat_no_204_shiv_kripa_tower_1" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -389,7 +389,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="District"
                                 android:inputType="text"
-                                android:text="Durg" />
+                                android:text="@string/durg" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -407,7 +407,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="State"
                                 android:inputType="textShortMessage"
-                                android:text="Chhattisgarh" />
+                                android:text="@string/chhattisgarh" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -445,7 +445,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="EDUCATIONAL DETAILS"
+                android:text="@string/educational_details"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -486,7 +486,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Qualification"
                                 android:inputType="text"
-                                android:text="B.E." />
+                                android:text="@string/b_e" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -522,7 +522,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="WorkExperience (detail)"
                                 android:inputType="textShortMessage"
-                                android:text="Ola driver" />
+                                android:text="@string/ola_driver" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -540,7 +540,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Preferred sector to work"
                                 android:inputType="text"
-                                android:text="IT industry" />
+                                android:text="@string/it_industry" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -558,7 +558,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Preferred course"
                                 android:inputType="text"
-                                android:text="Telecommunications" />
+                                android:text="@string/telecommunications" />
                         </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
@@ -596,7 +596,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="6"
                             android:gravity="center_vertical"
-                            android:text="Ready to relocate?" />
+                            android:text="@string/ready_to_relocate" />
 
                         <RadioGroup
                             android:id="@+id/relocate_reg"
@@ -611,14 +611,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
-                                android:text="Yes" />
+                                android:text="@string/yes_2" />
 
                             <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/candidate_relocate_false"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="No" />
+                                android:text="@string/no_2" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -639,7 +639,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="6"
                             android:gravity="center_vertical"
-                            android:text="Agree to register?" />
+                            android:text="@string/agree_to_register" />
 
                         <RadioGroup
                             android:id="@+id/agree_reg"
@@ -654,14 +654,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
-                                android:text="Yes" />
+                                android:text="@string/yes_3" />
 
                             <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/candidate_agree_false"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="No" />
+                                android:text="@string/no_3" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -685,7 +685,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/colorButton"
                 android:gravity="center"
-                android:text="Update" />
+                android:text="@string/update" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

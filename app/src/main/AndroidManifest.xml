@@ -83,6 +83,12 @@
         <activity
             android:name=".browse_course.browse_course"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".first_login.first_login"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".language_choice.language_choice"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

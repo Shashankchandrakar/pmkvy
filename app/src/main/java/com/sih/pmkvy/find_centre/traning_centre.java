@@ -98,10 +98,8 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<String> state_dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, state);
         state_spinner.setAdapter(state_dataAdapter);
 
-         district = new ArrayList<>();
-         //district.add("Select District");
-
-
+        district = new ArrayList<>();
+        //district.add("Select District");
 
 
     }
@@ -115,11 +113,11 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
 
                 item = parent.getItemAtPosition(position).toString();
                 //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner,district).execute();
+                new get_request_state(getApplicationContext(), centre_list, centre_lists_adapter, item, district_spinner, district).execute();
             } else {
                 item = parent.getItemAtPosition(position).toString();
                 //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                new get_request(getApplicationContext(), centre_list, centre_lists_adapter,item).execute();
+                new get_request(getApplicationContext(), centre_list, centre_lists_adapter, item).execute();
 
             }
 
@@ -143,8 +141,8 @@ class get_request extends AsyncTask<String, Void, String> {
     List<find_centre> center_list;
     centre_list_adapter centre_lists_adapter;
 
-    public get_request(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter,String district) {
-        this.district=district;
+    public get_request(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter, String district) {
+        this.district = district;
         this.context = context;
         this.centre_lists_adapter = centre_lists_adapter;
         this.center_list = center_list;
@@ -163,7 +161,7 @@ class get_request extends AsyncTask<String, Void, String> {
         try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("data");
-
+            center_list.clear();
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject obj = jsonArray.getJSONObject(i);
@@ -203,7 +201,7 @@ class get_request extends AsyncTask<String, Void, String> {
             json = new JSONObject();
             JSONObject add = new JSONObject();
 
-            add.put("training_center_district",district);
+            add.put("training_center_district", district);
 
             //json.put("data", add);
 
@@ -249,13 +247,13 @@ class get_request_state extends AsyncTask<String, Void, String> {
     centre_list_adapter centre_lists_adapter;
     List<String> district;
 
-    public get_request_state(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter, String state, Spinner district_spinner,List<String> district) {
+    public get_request_state(Context context, List<find_centre> center_list, centre_list_adapter centre_lists_adapter, String state, Spinner district_spinner, List<String> district) {
         this.context = context;
         this.district_spinner = district_spinner;
         this.centre_lists_adapter = centre_lists_adapter;
         this.center_list = center_list;
         this.state = state;
-        this.district=district;
+        this.district = district;
     }
 
     @Override
@@ -264,8 +262,8 @@ class get_request_state extends AsyncTask<String, Void, String> {
         StringBuilder district_name;
 
 
-
         try {
+            district.clear();
             district.add("Select District");
             JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("district");
@@ -279,6 +277,7 @@ class get_request_state extends AsyncTask<String, Void, String> {
 
             }
             ArrayAdapter<String> district_dataAdapter = new ArrayAdapter<String>(context.getApplicationContext(), android.R.layout.simple_spinner_item, district);
+            //district_dataAdapter.notifyDataSetChanged();
             district_spinner.setAdapter(district_dataAdapter);
 
         } catch (Exception e) {

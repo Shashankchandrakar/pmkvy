@@ -21,7 +21,7 @@
                 android:padding="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Personal Details"
+                android:text="@string/personal_details_1"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="Name"
+                            android:text="@string/name"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                             android:layout_height="wrap_content"
                             android:padding="8dp"
                             android:layout_weight="9"
-                            android:hint="Enter Name " />
+                            android:hint="@string/enter_name" />
 
 
                     </TableRow>
@@ -80,7 +80,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="Date of Birth"
+                            android:text="@string/date_of_birth"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -96,7 +96,7 @@
                             android:layout_height="35dp"
                             android:layout_weight="4"
                             android:background="@color/colorButton"
-                            android:text="Change"
+                            android:text="@string/change"
                             />
                     </TableRow>
 
@@ -116,7 +116,7 @@
                 android:padding="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact Details"
+                android:text="@string/contact_details"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
@@ -144,7 +144,7 @@
                             android:padding="6dp"
                             android:textSize="20sp"
                             android:layout_weight="1"
-                            android:text="Email :"
+                            android:text="@string/email_1"
                             android:textStyle="bold"
                             />
                         <EditText
@@ -153,7 +153,7 @@
                             android:layout_height="wrap_content"
                             android:padding="8dp"
                             android:layout_weight="9"
-                            android:hint="Enter email " />
+                            android:hint="@string/enter_email" />
 
 
                     </TableRow>
@@ -169,14 +169,14 @@
                             android:textSize="20sp"
                             android:padding="6dp"
                             android:layout_weight="1"
-                            android:text="Contact:"
+                            android:text="@string/contact"
                             android:textStyle="bold"
                             />
                         <EditText
                             android:id="@+id/contact"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Contact Number"
+                            android:hint="@string/contact_number"
                             android:padding="8dp"
                             android:layout_weight="9"
                             />
@@ -198,7 +198,7 @@
                 android:padding="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Location"
+                android:text="@string/location"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
@@ -226,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="State"
+                            android:text="@string/state"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -255,7 +255,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="District"
+                            android:text="@string/district"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -284,7 +284,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="City"
+                            android:text="@string/city"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -313,7 +313,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="6dp"
-                            android:text="Pincode"
+                            android:text="@string/pincode"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -343,7 +343,7 @@
                 android:padding="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="App Settings:- "
+                android:text="@string/app_settings"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
@@ -372,7 +372,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
                             android:padding="6dp"
-                            android:text="Language"
+                            android:text="@string/language"
                             android:textStyle="bold"
                             android:layout_weight="1"
                             />
@@ -406,7 +406,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:background="@color/colorButton"
-                android:text="Update" />
+                android:text="@string/update_1" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

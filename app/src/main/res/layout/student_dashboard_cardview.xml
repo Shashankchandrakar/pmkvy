@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Sector Skill Council:" />
+                        android:text="@string/sector_skill_council_2" />
 
                     <TextView
                         style="@style/course_card_description"
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:id="@+id/secotr_skill_dashboard"
-                        android:text="Agriculture" />
+                        android:text="@string/agriculture_2" />
 
 
                 </LinearLayout>
@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="View"
+                android:text="@string/view_3"
                 android:textAlignment="center" />
 
         </LinearLayout>

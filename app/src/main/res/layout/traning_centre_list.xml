@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:text="LOLL"
+                android:text="@string/loll"
                 style="@style/training_center_list_card_title"/>
 
             <TextView
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/centre_name"
                 android:clickable="true"
-                android:text="LJHOH"
+                android:text="@string/ljhoh"
                 style="@style/training_center_list_card_field" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_below="@+id/centre_address"
                 android:clickable="true"
                 style="@style/training_center_list_card_field"
-                android:text="PHONE" />
+                android:text="@string/phone" />
 
             <TextView
                 android:id="@+id/centre_info"
@@ -52,7 +52,7 @@
                 android:layout_below="@+id/centre_phone_no"
                 android:clickable="true"
                 android:padding="5dp"
-                android:text="INFO"
+                android:text="@string/info"
                 android:visibility="gone" />
 
             <Button
@@ -62,7 +62,7 @@
                 android:layout_marginLeft="5dp"
                 android:background="@android:color/holo_green_dark"
                 android:shadowColor="@color/colorPrimary"
-                android:text="Calll"
+                android:text="@string/call"
                 android:visibility="gone" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

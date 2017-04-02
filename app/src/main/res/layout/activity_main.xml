@@ -107,6 +107,21 @@
             android:layout_height="match_parent"
             android:id="@+id/browse_course_homepage"
             android:text="Browse Course"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hindi"
+            android:text="Hindi"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/english"
+            android:text="English"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/language_selector"
+            android:text="Language"/>
     </LinearLayout>
 
 

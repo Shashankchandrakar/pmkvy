@@ -135,7 +135,7 @@ class get_request extends AsyncTask<String, Void, String> {
             JSONObject obj1 = new JSONObject(s);
             JSONArray obj2 = obj1.getJSONArray("data");
 
-
+            courses.clear();
             for (int i = 0; i < obj2.length(); i++) {
 
                 JSONObject obj3 = obj2.getJSONObject(i);
@@ -155,6 +155,7 @@ class get_request extends AsyncTask<String, Void, String> {
 
         }
         browse_adapter ba = new browse_adapter(courses);
+        ba.notifyDataSetChanged();
         rv.setAdapter(ba);
     }
 
@@ -219,7 +220,7 @@ class get_request_role extends AsyncTask<String, Void, String> {
 
     public get_request_role(Context context, Spinner job_role, String job_sector) {
         this.context = context;
-        //Toast.makeText(context.getApplicationContext(), "INSIDE", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context.getApplicationContext(), "INSIDE", Toast.LENGTH_SHORT).show();
         this.job_role = job_role;
         this.job_sector = job_sector;
 

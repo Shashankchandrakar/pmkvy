@@ -1,52 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:focusable="true"
-    android:padding="4dp"
-    >
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+    <LinearLayout
+        style="@style/single_course_card_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
+        android:orientation="vertical">
 
-        <LinearLayout
-            style="@style/browse_course_card_layout"
+        <TextView
+            android:id="@+id/course_name_browse_course"
+            style="@style/course_card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@string/_2_week_gardner_course" />
 
-            <TextView
-                android:id="@+id/job_sector_browse_course"
-                style="@style/browse_course_card_field"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="Job Sector" />
+                android:layout_weight="2.5"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/job_role_browse_course"
-                style="@style/browse_course_card_field"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/course_card_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6.8"
+                        android:text="@string/job_role" />
+
+                    <TextView
+                        android:id="@+id/job_role_browse_course"
+                        style="@style/course_card_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:paddingLeft="4dp"
+                        android:text="@string/gardner" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        style="@style/course_card_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="@string/sector_skill_council" />
+
+                    <TextView
+                        android:id="@+id/job_sector_browse_course"
+                        style="@style/course_card_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="@string/agriculture" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/view_course_completed"
+                style="@style/course_card_button_completed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="Job Role" />
-
-            <TextView
-                android:id="@+id/course_name_browse_course"
-                style="@style/browse_course_card_field"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="Course Name" />
-
+                android:layout_marginTop="6dp"
+                android:text="@string/view"
+                android:textAlignment="center" />
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

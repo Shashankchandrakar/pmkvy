@@ -28,6 +28,8 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.sih.pmkvy.homepage.*;
+
 
 /**
  * Created by test on 2/26/2017.
@@ -54,7 +56,7 @@ public class login_activity_student extends AppCompatActivity implements View.On
     public void onClick(View v) {
         boolean checkValidData = checkData();
         if (checkValidData) {
-            //Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
+
             get_request req = new get_request(student_email.getText().toString(), student_password.getText().toString(), v.getContext());
             req.execute();
             //(req.getStatus()!=AsyncTask.Status.FINISHED)
@@ -101,14 +103,16 @@ class get_request extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
         if (flag) {
             Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
             SharedPreferences sharedPreferences;
             sharedPreferences=context.getApplicationContext().getSharedPreferences("PREF",Context.MODE_PRIVATE);
             SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.putString("NAME","TEST");
+            editor.putString("email",email);
             editor.apply();
             editor.commit();
+            context.startActivity(new Intent(context.getApplicationContext(),homepage.class));
 
         } else
             Toast.makeText(context.getApplicationContext(), "Login Failed" + s, Toast.LENGTH_LONG).show();
@@ -142,7 +146,7 @@ class get_request extends AsyncTask<String, Void, String> {
             //add.put("center_id","fdkskfb4343");
             //add.put("user_last_login","2017-03-20");
             //add.put("user_date_joined","2017-03-20");
-            json.put("data", add);
+
 
 
             wr.write(add.toString());
