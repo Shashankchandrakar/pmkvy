@@ -123,4 +123,7 @@
     <string name="info">INFO</string>
     <string name="call">Call</string>
     <string name="language_selector_hindi">हिंदी</string>
+    <string name="find_tc_gps">Find Training center using gps</string>
+    <string name="login_student">Login as student</string>
+    <string name="login_employer">Login as employer</string>
 </resources>

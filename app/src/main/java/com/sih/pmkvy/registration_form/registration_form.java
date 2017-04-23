@@ -8,6 +8,9 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +22,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
+import com.sih.pmkvy.about_pmkvy.about_pmkvy;
+import com.sih.pmkvy.browse_course.browse_course;
+import com.sih.pmkvy.find_centre.traning_centre;
+import com.sih.pmkvy.settings.settings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -116,7 +123,34 @@ public class registration_form extends AppCompatActivity implements AdapterView.
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.browse_course_menu:
+                startActivity(new Intent(this, browse_course.class));
+                return true;
+            case R.id.find_training_center_menu:
+                startActivity(new Intent(this, traning_centre.class));
+                return true;
+
+            case R.id.about_menu:
+                startActivity(new Intent(this, about_pmkvy.class));
+                return true;
+            case R.id.settings_menu:
+                startActivity(new Intent(this, settings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //respond to menu item selection
+
+    }
     @Override
     public void onClick(View v) {
         if (Check_data()) {
@@ -195,7 +229,7 @@ public class registration_form extends AppCompatActivity implements AdapterView.
                 add.put("c_is_ready_to_relocate",1);
                 add.put("c_max_fee",213);//Long.parseLong(maxfees));
                 add.put("c_is_agree",1);
-                add.put("c_app_user_email","appuser1@gmail.com");
+                add.put("c_app_user_email","appuser@gmail.com");
 
 
 
@@ -386,7 +420,7 @@ class register_info_data extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         try {
-            String link = "https://9a3a0b42.ngrok.io/api/candidateregister/";
+            String link = "http://192.168.43.5:8000/api/candidateregister/";
 
 
             //Toast.makeText(context.getApplicationContext(),"LLLasfsdfdOLLL",Toast.LENGTH_LONG).show();

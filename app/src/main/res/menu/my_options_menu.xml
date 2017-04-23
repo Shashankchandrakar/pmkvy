@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/browse_course_menu"
+        android:title="Browse By Course" />
+    <item
+        android:id="@+id/find_training_center_menu"
+        android:title="Find Training Center" />
+    <item
+        android:id="@+id/settings_menu"
+        android:title="Settings" />
+    <item
+        android:id="@+id/about_menu"
+        android:title="About PMKVY" />
+</menu>

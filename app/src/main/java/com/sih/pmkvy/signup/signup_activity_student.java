@@ -26,7 +26,10 @@ import com.sih.pmkvy.login.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+
+import com.sih.pmkvy.homepage.*;
 import com.sih.pmkvy.login.*;
+
 import java.io.OutputStreamWriter;
 import java.net.URI;
 import java.net.URL;
@@ -60,11 +63,12 @@ public class signup_activity_student extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.already_member) {
-            Intent login=new Intent(this,login_activity_student.class);
+            Intent login = new Intent(this, login_activity_student.class);
+            startActivity(login);
         } else {
             boolean checkValidData = checkData();
             if (checkValidData) {
-                Toast.makeText(v.getContext(),"LLLOL",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "LLLOL", Toast.LENGTH_SHORT).show();
                 get_request req = new get_request(student_name.getText().toString(), student_email.getText().toString(), student_password.getText().toString(), v.getContext());
                 req.execute();
 
@@ -119,9 +123,10 @@ class get_request extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        if (flag)
+        if (flag) {
             Toast.makeText(context.getApplicationContext(), "Account Created Successful", Toast.LENGTH_LONG).show();
-        else
+            context.startActivity(new Intent(context.getApplicationContext(),homepage.class));
+        } else
             Toast.makeText(context.getApplicationContext(), "Account Creation Failed" + s + json1.toString(), Toast.LENGTH_LONG).show();
 
     }

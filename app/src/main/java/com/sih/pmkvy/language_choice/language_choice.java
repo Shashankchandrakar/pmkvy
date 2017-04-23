@@ -77,7 +77,7 @@ public class language_choice extends AppCompatActivity implements View.OnClickLi
 
 
         }
-        Toast.makeText(this, "LLLOL", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "LLLOL", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(v.getContext(), first_login.class));
 
     }

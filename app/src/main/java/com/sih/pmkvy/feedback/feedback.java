@@ -1,11 +1,16 @@
 package com.sih.pmkvy.feedback;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.StaticLayout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +21,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
+import com.sih.pmkvy.about_pmkvy.about_pmkvy;
+import com.sih.pmkvy.browse_course.browse_course;
+import com.sih.pmkvy.find_centre.traning_centre;
+import com.sih.pmkvy.settings.settings;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -80,7 +89,34 @@ public class feedback extends AppCompatActivity implements View.OnClickListener,
 
         new get_request_subject(sp_course_name, this, "tu1", adapter_course_name).execute();
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.browse_course_menu:
+                startActivity(new Intent(this, browse_course.class));
+                return true;
+            case R.id.find_training_center_menu:
+                startActivity(new Intent(this, traning_centre.class));
+                return true;
+
+            case R.id.about_menu:
+                startActivity(new Intent(this, about_pmkvy.class));
+                return true;
+            case R.id.settings_menu:
+                startActivity(new Intent(this, settings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //respond to menu item selection
+
+    }
     @Override
     public void onClick(View v) {
         if (Check_data()) {
@@ -148,6 +184,7 @@ class get_request_subject extends AsyncTask<String, Void, String> {
     String user_email;
     Spinner sp_course_name;
     Context context;
+    String data;
     ArrayAdapter<String> adapter_course_name;
 
     public get_request_subject(Spinner course_name, Context context, String user_email, ArrayAdapter<String> adapter_course_name) {
@@ -155,7 +192,9 @@ class get_request_subject extends AsyncTask<String, Void, String> {
         this.adapter_course_name = adapter_course_name;
         this.context = context;
         this.user_email = user_email;
-        //Toast.makeText(context.getApplicationContext(),"TRY",Toast.LENGTH_LONG).show();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("PREF", Context.MODE_PRIVATE);
+         data = sharedPreferences.getString("email", null);
+        //Toast.makeText(context.getApplicationContext(),data,Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -168,7 +207,7 @@ class get_request_subject extends AsyncTask<String, Void, String> {
             List<String> courses = new ArrayList<>();
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object1 = array.getJSONObject(i);
-                Toast.makeText(context.getApplicationContext(), object1.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context.getApplicationContext(), object1.toString(), Toast.LENGTH_SHORT).show();
                 courses.add(object1.getJSONObject("scr_course_id").getString("course_name"));
                 //feedback.course_id.add(object1.getJSONObject("scr_course_id").getString("course_id"));
                 //feedback.center_id.add(object1.getJSONObject("scr_training_center_id").getString("center_id"));
@@ -200,7 +239,7 @@ class get_request_subject extends AsyncTask<String, Void, String> {
             OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 
             JSONObject obj = new JSONObject();
-            obj.put("user_email", "au1");
+            obj.put("user_email", data);
 
             wr.write(obj.toString());
             wr.flush();
@@ -248,8 +287,8 @@ class get_request extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
 
-
-        //Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG).show();
+        if(flag)
+        Toast.makeText(context.getApplicationContext(),"Feedback Submitted" +s, Toast.LENGTH_LONG).show();
 
     }
 

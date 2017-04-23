@@ -10,40 +10,51 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/logo" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="Course Registration"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+        <View style="@style/horizontal_line_completed"></View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="6dp"
+            android:text="Choose one of the two methods"
+            android:textAlignment="center"
+            android:textSize="20sp" />
         <!-- Email Label -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical"
-            android:padding="6dp"
-            android:layout_marginTop="20dp">
+            android:padding="6dp">
+
             <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btn_student_login_first"
+                android:id="@+id/register_aadhar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:background="@color/colorButton"
                 android:elevation="2dp"
                 android:padding="12dp"
-                android:text="@string/login_student"
-                android:layout_marginBottom="16dp"/>
+                android:text="Register using aadhar no" />
 
             <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btn_employer_login_first"
+                android:id="@+id/register_form"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:background="@color/colorButton"
                 android:elevation="2dp"
                 android:padding="0dp"
-                android:text="@string/login_employer" />
+                android:text="register using form" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

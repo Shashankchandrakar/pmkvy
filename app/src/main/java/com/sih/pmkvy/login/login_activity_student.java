@@ -14,13 +14,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
 
 import org.json.JSONObject;
 
-import com.sih.pmkvy.login.*;
+import com.sih.pmkvy.signup.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -39,6 +40,7 @@ public class login_activity_student extends AppCompatActivity implements View.On
 
     private EditText student_name, student_email, student_password;
     private Button login_button;
+    TextView reg;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,21 +49,35 @@ public class login_activity_student extends AppCompatActivity implements View.On
         student_email = (EditText) findViewById(R.id.student_email_login);
         student_password = (EditText) findViewById(R.id.studnet_password_login);
         login_button = (Button) findViewById(R.id.btn_login);
+        reg = (TextView) findViewById(R.id.not_member);
+        reg.setOnClickListener(this);
         login_button.setOnClickListener(this);
+       // Bundle b = getIntent().getExtras();
+        //SharedPreferences shared = getSharedPreferences("PREF", MODE_PRIVATE);
+        //String email = shared.getString("email", null);
+        //String pass = shared.getString("pass", null);
+        //if (!(email.equals(null) && (pass.equals(null)))) {
+         ///   student_email.setText(email);
+//
+        //}
 
 
     }
 
     @Override
     public void onClick(View v) {
-        boolean checkValidData = checkData();
-        if (checkValidData) {
+        if (R.id.not_member == v.getId()) {
+            startActivity(new Intent(v.getContext(), signup_activity_student.class));
+        } else {
+            boolean checkValidData = checkData();
+            if (checkValidData) {
 
-            get_request req = new get_request(student_email.getText().toString(), student_password.getText().toString(), v.getContext());
-            req.execute();
-            //(req.getStatus()!=AsyncTask.Status.FINISHED)
-            //Toast.makeText(v.getContext(),"After Execution",Toast.LENGTH_SHORT).show();
-            //TODO: send data to server to create account
+                get_request req = new get_request(student_email.getText().toString(), student_password.getText().toString(), v.getContext());
+                req.execute();
+                //(req.getStatus()!=AsyncTask.Status.FINISHED)
+                //
+                //TODO: send data to server to create account
+            }
         }
     }
 
@@ -95,7 +111,7 @@ class get_request extends AsyncTask<String, Void, String> {
 
     public get_request(String email, String pass, Context context) {
 
-
+        //Toast.makeText(context.getApplicationContext(),"After Execution",Toast.LENGTH_SHORT).show();
         this.email = email;
         this.pass = pass;
         this.context = context;
@@ -105,14 +121,15 @@ class get_request extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String s) {
         Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
         if (flag) {
-            Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
+            //Toast.makeText(context.getApplicationContext(), "Login Successful " + s, Toast.LENGTH_LONG).show();
             SharedPreferences sharedPreferences;
-            sharedPreferences=context.getApplicationContext().getSharedPreferences("PREF",Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.putString("email",email);
+            sharedPreferences = context.getApplicationContext().getSharedPreferences("PREF", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("email", email);
+            editor.putString("pass", pass);
             editor.apply();
             editor.commit();
-            context.startActivity(new Intent(context.getApplicationContext(),homepage.class));
+            context.startActivity(new Intent(context.getApplicationContext(), homepage.class));
 
         } else
             Toast.makeText(context.getApplicationContext(), "Login Failed" + s, Toast.LENGTH_LONG).show();
@@ -146,7 +163,6 @@ class get_request extends AsyncTask<String, Void, String> {
             //add.put("center_id","fdkskfb4343");
             //add.put("user_last_login","2017-03-20");
             //add.put("user_date_joined","2017-03-20");
-
 
 
             wr.write(add.toString());

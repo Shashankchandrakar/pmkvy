@@ -122,4 +122,7 @@
     <string name="phone">फ़ोन</string>
     <string name="info">जानकारी</string>
     <string name="call">फ़ोन कॉल</string>
+    <string name="find_tc_gps">जीपीएस का उपयोग कर प्रशिक्षण केंद्र खोजें</string>
+    <string name="login_student">छात्र के रूप में प्रवेश करें</string>
+    <string name="login_employer">नियोक्ता के रूप में प्रवेश करें</string>
 </resources>
