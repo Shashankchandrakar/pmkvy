@@ -8,6 +8,7 @@ package com.sih.pmkvy.find_centre;
 
 public class find_centre {
     private String centre_name;
+    private String center_grade;
     private String centre_address;
     private String centre_phone;
     private String centre_info;
@@ -22,13 +23,22 @@ public class find_centre {
     }
 
    */
-   public find_centre(String centre_name, String centre_address, String centre_phone, String centre_info) {
+   public find_centre(String centre_name, String centre_address, String centre_phone, String centre_info,String center_grade) {
         this.centre_name = centre_name;
         this.centre_address = centre_address;
         this.centre_phone = centre_phone;
         this.centre_info=centre_info;
+       this.center_grade=center_grade;
         //this.call_button=call_button;
 
+    }
+
+    public String getCenter_grade() {
+        return center_grade;
+    }
+
+    public void setCenter_grade(String center_grade) {
+        this.center_grade = center_grade;
     }
 
     public String getCentre_name() {

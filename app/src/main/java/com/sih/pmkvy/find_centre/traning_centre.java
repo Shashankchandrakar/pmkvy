@@ -10,6 +10,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,9 +23,12 @@ import android.widget.Toast;
 
 
 import com.sih.pmkvy.R;
+import com.sih.pmkvy.about_pmkvy.about_pmkvy;
 import com.sih.pmkvy.adapter.ClickListener;
 import com.sih.pmkvy.adapter.RecyclerTouchListener;
 import com.sih.pmkvy.adapter.centre_list_adapter;
+import com.sih.pmkvy.browse_course.browse_course;
+import com.sih.pmkvy.settings.settings;
 import com.sih.pmkvy.ui.DividerItemDecoration;
 import com.sih.pmkvy.centre_complete_info.*;
 
@@ -103,6 +109,34 @@ public class traning_centre extends AppCompatActivity implements AdapterView.OnI
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.browse_course_menu:
+                startActivity(new Intent(this, browse_course.class));
+                return true;
+            case R.id.find_training_center_menu:
+                startActivity(new Intent(this, traning_centre.class));
+                return true;
+
+            case R.id.about_menu:
+                startActivity(new Intent(this, about_pmkvy.class));
+                return true;
+            case R.id.settings_menu:
+                startActivity(new Intent(this, settings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //respond to menu item selection
+
+    }
 
 
     @Override
@@ -157,6 +191,7 @@ class get_request extends AsyncTask<String, Void, String> {
         StringBuilder center_address;
         StringBuilder center_phone;
         StringBuilder center_info;
+        StringBuilder grade;
         find_centre centre_add;
         try {
             JSONObject jsonObject = new JSONObject(s);
@@ -169,7 +204,8 @@ class get_request extends AsyncTask<String, Void, String> {
                 center_address = new StringBuilder(obj.getString("address"));
                 center_phone = new StringBuilder(obj.getString("center_id"));
                 center_info = new StringBuilder(obj.getString("center_id"));
-                centre_add = new find_centre(center_name.toString(), center_address.toString(), center_phone.toString(), center_info.toString());
+                grade=new StringBuilder(obj.getString("tc_grade"));
+                centre_add = new find_centre(center_name.toString(), center_address.toString(), center_phone.toString(), center_info.toString(),grade.toString());
                 center_list.add(centre_add);
 
             }

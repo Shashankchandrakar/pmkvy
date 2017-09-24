@@ -14,35 +14,35 @@
         app:cardUseCompatPadding="true">
 
         <LinearLayout
+            style="@style/training_center_list_card_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            style="@style/training_center_list_card_layout">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/centre_name"
+                style="@style/training_center_list_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:text="@string/loll"
-                style="@style/training_center_list_card_title"/>
+                android:text="@string/loll" />
 
             <TextView
                 android:id="@+id/centre_address"
+                style="@style/training_center_list_card_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/centre_name"
                 android:clickable="true"
-                android:text="@string/ljhoh"
-                style="@style/training_center_list_card_field" />
+                android:text="@string/ljhoh" />
 
             <TextView
                 android:id="@+id/centre_phone_no"
+                style="@style/training_center_list_card_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/centre_address"
                 android:clickable="true"
-                style="@style/training_center_list_card_field"
                 android:text="@string/phone" />
 
             <TextView
@@ -64,6 +64,14 @@
                 android:shadowColor="@color/colorPrimary"
                 android:text="@string/call"
                 android:visibility="gone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade"
+                android:clickable="true"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/grade_find"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

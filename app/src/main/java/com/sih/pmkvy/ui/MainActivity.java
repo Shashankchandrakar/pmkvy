@@ -8,9 +8,13 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.sih.pmkvy.about_pmkvy.about_pmkvy;
 import com.sih.pmkvy.student_dashboard.*;
 import com.sih.pmkvy.navigation_bar.*;
 import com.sih.pmkvy.*;
@@ -41,7 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
+        startActivity(new Intent(this, language_choice.class));
         dashboard = (Button) findViewById(R.id.dashboard);
         hindi = (Button) findViewById(R.id.hindi);
         english = (Button) findViewById(R.id.english);
@@ -82,7 +89,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.browse_course_menu:
+                startActivity(new Intent(this, browse_course.class));
+                return true;
+            case R.id.find_training_center_menu:
+                startActivity(new Intent(this, traning_centre.class));
+                return true;
+
+            case R.id.about_menu:
+                startActivity(new Intent(this, about_pmkvy.class));
+                return true;
+            case R.id.settings_menu:
+                startActivity(new Intent(this, settings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //respond to menu item selection
+
+    }
     @Override
     public void onClick(View v) {
         Intent training = new Intent(this, traning_centre.class);
@@ -92,13 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent course = new Intent(this, course_info_activity.class);
         Intent homepage = new Intent(this, homepage.class);
         Intent register = new Intent(this, registration_form.class);
-        Intent gps = new Intent(this, gps_location.class);
+        Intent gps = new Intent(this, employer_training_list.class);
         Intent course_provided = new Intent(this, course_provide_center_activity.class);
         Intent session = new Intent(this, getdata.class);
         Intent feedback = new Intent(this, feedback.class);
         Intent navi = new Intent(this, navigation_bar.class);
         Intent browse_course = new Intent(this, browse_course.class);
-        Intent lang=new Intent(this,language_choice.class);
+        Intent lang = new Intent(this, language_choice.class);
         Intent dashboard = new Intent(this, dashboardactivity.class);
 
         if (R.id.goto_signup == v.getId()) {

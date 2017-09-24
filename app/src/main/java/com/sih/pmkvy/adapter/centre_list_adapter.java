@@ -33,7 +33,7 @@ public class centre_list_adapter extends RecyclerView.Adapter<centre_list_adapte
 
     public class centre_holder extends RecyclerView.ViewHolder {
 
-        public TextView centre_name, centre_address, centre_phone, centre_info;
+        public TextView centre_name, centre_address, centre_phone, centre_info,center_grade;
         public Button call_button;
         //TODO: add call button while code in it
 
@@ -44,6 +44,7 @@ public class centre_list_adapter extends RecyclerView.Adapter<centre_list_adapte
             centre_phone = (TextView) itemView.findViewById(R.id.centre_phone_no);
             centre_info = (TextView) itemView.findViewById(R.id.centre_info);
             call_button = (Button) itemView.findViewById(R.id.call);
+            center_grade=(TextView)itemView.findViewById(R.id.grade_find);
         }
     }
 
@@ -77,6 +78,7 @@ public class centre_list_adapter extends RecyclerView.Adapter<centre_list_adapte
         //holder.centre_info.setOnClickListener(this);
         //holder.call_button.setText(centre.getCall_button());
         holder.call_button.setOnClickListener(this);
+        holder.center_grade.setText(centre.getCenter_grade());
 
 
     }

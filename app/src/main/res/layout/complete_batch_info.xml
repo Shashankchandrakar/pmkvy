@@ -1,191 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/complete_center_info"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:id="@+id/bd_scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
             <TextView
+                android:id="@+id/bd_title"
+                style="@style/complete_center_info_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/view_course_details"
-                style="@style/complete_center_info_title"/>
-            <View style="@style/horizontal_line_completed"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="14dp"
-                android:weightSum="10">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/course_name"
-                    style="@style/complete_center_detail_field"/>
-                <TextView
-                    android:id="@+id/course_name_courseinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
-                    android:layout_weight="4"
-                    android:text="@string/sdc_rowta" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="14dp"
-                android:weightSum="10">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/job_role_info"
-                    style="@style/complete_center_detail_field"/>
-                <TextView
-                    android:id="@+id/job_role_courseinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
-                    android:layout_weight="4"
-                    android:hint="Job Role"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="14dp"
-                android:weightSum="10">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/skill_sector"
-                    style="@style/complete_center_detail_field"/>
-                <TextView
-                    android:id="@+id/skill_sector_courseinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
-                    android:layout_weight="4"
-                    android:hint="Skill Sector" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="14dp"
-                android:weightSum="10">
-                <TextView
+                android:text="Batch Detail" />
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/course_level"
-                    style="@style/complete_center_detail_field"/>
-                <TextView
-                    android:id="@+id/courselevel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
-                    android:layout_weight="4"
-                    android:hint="Course Level" />
-            </LinearLayout>
+            <View style="@style/horizontal_line_completed" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="14dp"
                 android:weightSum="10">
+
                 <TextView
+                    style="@style/complete_center_detail_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="@string/no_of_days"
-                    style="@style/complete_center_detail_field"/>
+                    android:id="@+id/center_name_deatils"
+                    android:text="Center Name" />
+
                 <TextView
-                    android:id="@+id/days"
+                    android:id="@+id/bd_center_name"
+                    style="@style/complete_center_detail_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
                     android:layout_weight="4"
-                    android:hint="No. Of Days" />
+                    android:text="" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Course Name" />
+
+                <TextView
+                    android:id="@+id/bd_course_name"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/job_role_"
+                    android:layout_weight="6"
+                    android:text="Job Role" />
+
+                <TextView
+                    android:id="@+id/bd_jobrole"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Job Sector" />
+
+                <TextView
+                    android:id="@+id/bd_jobsector"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="No. of seats available" />
+
+                <TextView
+                    android:id="@+id/bd_no_of_seats"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Last date for Registration" />
+
+                <TextView
+                    android:id="@+id/bd_lastdate"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Assessement Date" />
+
+                <TextView
+                    android:id="@+id/bd_assessement_date"
+                    style="@style/complete_center_detail_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
         </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="14dp"
-                android:weightSum="10">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/min_qualification"
-                    style="@style/complete_center_detail_field"/>
-                <TextView
-                    android:id="@+id/minqualif"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/complete_center_detail_field"
-                    android:layout_weight="4"
-                    android:hint="Min.Qualification"/>
 
-            </LinearLayout>
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:weightSum="2"
-            android:layout_height="wrap_content">
-            <Button
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/bd_button_register"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
-                android:layout_margin="50dp"
-                android:id="@+id/reg_aadhar"
-                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
                 android:background="@color/colorButton"
-                android:layout_gravity="center"/>
+                android:elevation="2dp"
+                android:padding="12dp"
+                android:text="Register in this Course" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/batches_under_this_course"
-                style="@style/complete_center_info_title"/>
-            <View style="@style/horizontal_line_completed"/>
-
-        </LinearLayout>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
-            android:scrollbars="vertical">
-
-        </android.support.v7.widget.RecyclerView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/course_id_courseinfo"
-            android:visibility="gone"/>
-
     </LinearLayout>
 </ScrollView>

@@ -20,20 +20,16 @@ public class course_info_adapter extends RecyclerView.Adapter<course_info_adapte
 
     public static class Cousre_info_view_holder extends RecyclerView.ViewHolder {
         CardView cv;
-        TextView start_info, start_data, end_info, end_data, seats_info, seats_data, status_data, status_info;
+        TextView start_data, center_name, course_name, job_role, batch_id;
 
         public Cousre_info_view_holder(View itemView) {
             super(itemView);
-            start_info = (TextView) itemView.findViewById(R.id.starting_info);
+
             start_data = (TextView) itemView.findViewById(R.id.starting_data);
-            end_data = (TextView) itemView.findViewById(R.id.ending_data);
-            end_info = (TextView) itemView.findViewById(R.id.ending_inf0);
-            seats_data = (TextView) itemView.findViewById(R.id.seats_data);
-            seats_info = (TextView) itemView.findViewById(R.id.seats_info);
-            status_data = (TextView) itemView.findViewById(R.id.status_data);
-            status_info = (TextView) itemView.findViewById(R.id.status_info);
-
-
+            center_name = (TextView) itemView.findViewById(R.id.center_name_batch);
+            job_role = (TextView) itemView.findViewById(R.id.job_role_batch);
+            course_name = (TextView) itemView.findViewById(R.id.course_name_batch_info);
+            batch_id = (TextView) itemView.findViewById(R.id.batch_id);
         }
     }
 
@@ -55,14 +51,12 @@ public class course_info_adapter extends RecyclerView.Adapter<course_info_adapte
     @Override
     public void onBindViewHolder(Cousre_info_view_holder holder, int position) {
 
-        holder.start_info.setText("Starting Date");
+
         holder.start_data.setText(courses.get(position).starting_date);
-        holder.end_info.setText("Ending Date");
-        holder.end_data.setText(courses.get(position).end_date);
-        holder.seats_info.setText("Seats");
-        holder.seats_data.setText(courses.get(position).seats);
-        holder.status_info.setText("Status");
-        holder.status_data.setText(courses.get(position).status);
+        holder.course_name.setText(courses.get(position).course_name);
+        holder.center_name.setText(courses.get(position).center_name);
+        holder.job_role.setText(courses.get(position).job_role);
+        holder.batch_id.setText(courses.get(position).batch_id);
 
 
     }

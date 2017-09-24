@@ -12,12 +12,16 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 ;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sih.pmkvy.R;
+import com.sih.pmkvy.about_pmkvy.about_pmkvy;
 import com.sih.pmkvy.adapter.ClickListener;
 import com.sih.pmkvy.adapter.RecyclerTouchListener;
 
@@ -32,14 +36,17 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sih.pmkvy.browse_course.browse_course;
 import com.sih.pmkvy.course_info.*;
+import com.sih.pmkvy.find_centre.traning_centre;
+import com.sih.pmkvy.settings.settings;
 
 /**
  * Created by ASUS on 3/25/2017.
  */
 
 public class course_provide_center_activity extends AppCompatActivity {
-    String center_id;
+    String center_id,center_name;
 
 
     List<center_provide_center_data> course;
@@ -56,6 +63,7 @@ public class course_provide_center_activity extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         center_id = b.getString("center_id");
+        center_name = b.getString("center_name");
 
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
@@ -71,6 +79,7 @@ public class course_provide_center_activity extends AppCompatActivity {
                 TextView job_sector=(TextView)view.findViewById(R.id.job_sector_cardview_course);
 
                 course_info.putExtra("training_center_id", center_id);
+                course_info.putExtra("center_name", center_name);
                 course_info.putExtra("job_sector", job_sector.getText().toString());
                 course_info.putExtra("course_name",course_name.getText().toString());
                 course_info.putExtra("course_id",course_id.getText().toString());
@@ -89,6 +98,34 @@ public class course_provide_center_activity extends AppCompatActivity {
         course = new ArrayList<>();
 
         new get_request(this, course, rv, center_id).execute();
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.browse_course_menu:
+                startActivity(new Intent(this, browse_course.class));
+                return true;
+            case R.id.find_training_center_menu:
+                startActivity(new Intent(this, traning_centre.class));
+                return true;
+
+            case R.id.about_menu:
+                startActivity(new Intent(this, about_pmkvy.class));
+                return true;
+            case R.id.settings_menu:
+                startActivity(new Intent(this, settings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //respond to menu item selection
+
     }
 
 }
